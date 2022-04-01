@@ -115,6 +115,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DataBase.hpp" />
+    <ClInclude Include="Ec.hpp" />
+    <ClInclude Include="FieldOfStudy.hpp" />
+    <ClInclude Include="Ief.hpp" />
+    <ClInclude Include="Modify.hpp" />
+    <ClInclude Include="Student.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DataBase.cpp" />
+    <ClCompile Include="Ec.cpp" />
+    <ClCompile Include="FieldOfStudy.cpp" />
+    <ClCompile Include="Ief.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
