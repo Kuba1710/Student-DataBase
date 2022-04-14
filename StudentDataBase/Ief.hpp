@@ -9,5 +9,5 @@ public:
 	std::vector<Student> getVectorOfStudents() override;
 
 private:
-	std::vector<Student> onlyIefStudents;
+	std::vector<Student> onlyIefStudents; //komentarz
 };
