@@ -17,3 +17,5 @@ struct Student
 	std::vector<std::map<std::string, unsigned int>> classes; // vector zajec ktory przyjmuje mape key = nazwa zajeci, value =  liczba ects
 	float gpa;
 };
+
+// test git
