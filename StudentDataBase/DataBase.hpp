@@ -1,6 +1,10 @@
 #pragma once
 #include "FieldOfStudy.hpp"
 #include <memory>
+#include <mysql.h>
+
+
+
 class DataBase
 {
 public:

@@ -17,5 +17,5 @@ public:
 
 private:
 	std::vector<Student> groupOfStudents;
-	std::unique_ptr<Modify> modify = ;
+	std::unique_ptr<Modify> modify ;
 };

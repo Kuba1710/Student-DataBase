@@ -1,0 +1,3 @@
+C:\Users\Kuba\Desktop\semestr 6\StudentDataBase\Student-DataBase\StudentDataBase\x64\Release\StudentDataBase.vcxproj.AssemblyReference.cache
+C:\Users\Kuba\Desktop\semestr 6\StudentDataBase\Student-DataBase\StudentDataBase\x64\Release\StudentDataBase.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\Kuba\Desktop\semestr 6\StudentDataBase\Student-DataBase\StudentDataBase\x64\Release\StudentDataBase.exe
