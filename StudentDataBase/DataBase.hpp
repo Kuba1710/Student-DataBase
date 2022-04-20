@@ -2,6 +2,8 @@
 #include "FieldOfStudy.hpp"
 #include <memory>
 #include <mysql.h>
+using namespace System::Data;
+using namespace MySql::Data::MySqlClient;
 
 
 
@@ -11,6 +13,7 @@ public:
 	DataBase();
 	void sploadToDataBase();
 	void saveToDataBase();
+	void connectToDataBase(MySqlConnection^ sqlConn, MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataAdapter^ sqlDta, MySqlDataReader^ sqlRd);
 private:
 	std::unique_ptr<FieldOfStudy> Students;
 };

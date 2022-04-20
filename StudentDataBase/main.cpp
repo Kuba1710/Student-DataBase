@@ -1,12 +1,13 @@
 #include <mysql.h>
+#include "MyForm1.h"
+using namespace System;
+using namespace System::Windows::Forms;
 
 int main()
 {
+	Application::EnableVisualStyles();
+	Application::SetCompatibleTextRenderingDefault(false);
 
-	MYSQL students; // tworzymy zmienn¹ typu MYSQL
-
-	mysql_init(&students); // inicjalizacja
-
-	mysql_real_connect(&students, "localhost", "Kuba1710", "", "db_students", 3306, NULL, 0);
-	return 0;
+	StudentDataBase::MyForm form;
+	Application::Run(% form);
 }

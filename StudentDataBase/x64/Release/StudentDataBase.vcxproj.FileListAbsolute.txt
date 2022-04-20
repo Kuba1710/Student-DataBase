@@ -1,3 +1,7 @@
 C:\Users\Kuba\Desktop\semestr 6\StudentDataBase\Student-DataBase\StudentDataBase\x64\Release\StudentDataBase.vcxproj.AssemblyReference.cache
 C:\Users\Kuba\Desktop\semestr 6\StudentDataBase\Student-DataBase\StudentDataBase\x64\Release\StudentDataBase.vcxproj.SuggestedBindingRedirects.cache
 C:\Users\Kuba\Desktop\semestr 6\StudentDataBase\Student-DataBase\StudentDataBase\x64\Release\StudentDataBase.exe
+C:\Users\Kuba\Desktop\semestr 6\StudentDataBase\Student-DataBase\StudentDataBase\x64\Release\StudentDataBase.MyForm1.resources
+C:\Users\Kuba\Desktop\semestr 6\StudentDataBase\Student-DataBase\StudentDataBase\x64\Release\StudentDataBase.vcxproj.GenerateResource.cache
+C:\Users\Kuba\Desktop\semestr 6\StudentDataBase\Student-DataBase\StudentDataBase\x64\Release\StudentDataBase.vcxproj.CopyComplete
+C:\Users\Kuba\Desktop\semestr 6\StudentDataBase\Student-DataBase\StudentDataBase\x64\Release\MySql.Data.DLL
