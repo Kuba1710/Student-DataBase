@@ -22,7 +22,7 @@ void DataBase::AddToDataBase(MySqlConnection^ sqlConn, MySqlCommand^ sqlCmd, Dat
 	sqlConn->Open();
 	sqlCmd->Connection = sqlConn;
 
-	//sqlCmd->CommandText = "insert into db_students.allstudents (Firstname, Secondname, index, pesel, fieldOfStudy, Specialization, degree, ects, gpa)"
+	sqlCmd->CommandText = "insert into db_students.allstudents (Firstname, Secondname, index, pesel, fieldOfStudy, Specialization, degree, ects, gpa)"
 		//"values('" + ... //do dokonczenia
 
 	sqlRd = sqlCmd->ExecuteReader();
