@@ -1,5 +1,10 @@
-﻿  MyForm1.cpp
+﻿  DataBase.cpp
+  Ec.cpp
+  FieldOfStudy.cpp
+  Ief.cpp
   main.cpp
+  MyForm1.cpp
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
   Generating Code...
   DataBase.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-  StudentDataBase.vcxproj -> C:\Users\Kuba\Desktop\semestr 6\StudentDataBase\Student-DataBase\StudentDataBase\x64\Release\StudentDataBase.exe
+  StudentDataBase.vcxproj -> C:\Users\EL_kammex\Student-DataBase\StudentDataBase\x64\Release\StudentDataBase.exe
