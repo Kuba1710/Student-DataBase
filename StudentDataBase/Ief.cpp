@@ -1,4 +1,4 @@
 #include "Ief.hpp"
 
-void Ief::viewStudents() {};
+//void Ief::viewStudents() {};
 //std::vector<Student> Ief::getVectorOfStudents() {};

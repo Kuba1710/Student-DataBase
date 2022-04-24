@@ -1,4 +1,8 @@
-﻿  MyForm1.cpp
+﻿  DataBase.cpp
+  Ec.cpp
+  FieldOfStudy.cpp
+  Ief.cpp
+  MyForm1.cpp
   main.cpp
   Generating Code...
   DataBase.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
