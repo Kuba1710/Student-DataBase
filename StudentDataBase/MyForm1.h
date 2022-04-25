@@ -25,6 +25,7 @@ namespace StudentDataBase {
 	{
 
 		DataBase* students = new DataBase();
+		//std::unique_ptr<DataBase> students = std::make_unique<DataBase>();
 		Student* student = new Student();
 		FieldOfStudy* mainField = new FieldOfStudy();
 
@@ -52,7 +53,7 @@ namespace StudentDataBase {
 			//
 			//TODO: Add the constructor code here
 			//
-
+			std::unique_ptr<int> xxx = std::make_unique<int>();
 		}
 
 	protected:
