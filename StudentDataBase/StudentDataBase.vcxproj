@@ -135,6 +135,7 @@
     <ClCompile Include="FieldOfStudy.cpp" />
     <ClCompile Include="Ief.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Modify.cpp" />
     <ClCompile Include="MyForm1.cpp" />
   </ItemGroup>
   <ItemGroup>

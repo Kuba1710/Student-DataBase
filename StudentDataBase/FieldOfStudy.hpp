@@ -13,8 +13,7 @@ class FieldOfStudy
 public:
 	FieldOfStudy() = default;
 	virtual void viewStudents(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd);
-	void update();
-	void setModify();
+	void update(modify::operations, MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, const Student* student);
 	//virtual std::vector<Student> getVectorOfStudents();
 	//bool ectsNotification(/*moze tutaj bedzie jakis argument*/);
 	//bool scholarshipNotification();
@@ -22,5 +21,6 @@ public:
 
 private:
 	std::vector<Student> groupOfStudents;
-	std::unique_ptr<Modify> modify ;
+protected:
+	std::unique_ptr<modify::Modify> modify ;
 };

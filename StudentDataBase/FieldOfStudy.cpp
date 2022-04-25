@@ -14,14 +14,14 @@ void FieldOfStudy::viewStudents(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDat
 	
 }
 
-void FieldOfStudy::update()
+void FieldOfStudy::update(modify::operations operation, MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, const Student* student)
 {
-	modify->update();
-}
-
-void setModify()
-{
-
+	switch (operation)
+	{
+	case modify::operations::add:
+		modify->add(sqlCmd, sqlDt, sqlRd, student);
+		break;
+	}
 }
 
 //std::vector<Student> FieldOfStudy::getVectorOfStudents()

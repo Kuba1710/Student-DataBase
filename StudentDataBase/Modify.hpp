@@ -1,7 +1,20 @@
 #pragma once
+#include <mysql.h>
+#include "Student.hpp"
 
-class Modify
+using namespace MySql::Data::MySqlClient;
+using namespace System::Data;
+
+namespace modify
 {
-public:
-	virtual void update() = 0;
-};
+	enum class operations
+	{
+		add
+	};
+
+	class Modify
+	{
+	public:
+		void add(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, const Student* student);
+	};
+}
