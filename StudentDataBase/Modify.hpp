@@ -9,12 +9,14 @@ namespace modify
 {
 	enum class operations
 	{
-		add
+		add,
+		deleteStudent
 	};
 
 	class Modify
 	{
 	public:
 		void add(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, const Student* student);
+		void deleteStudent(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, const Student* student);
 	};
 }

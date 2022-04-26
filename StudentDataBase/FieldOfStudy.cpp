@@ -21,6 +21,10 @@ void FieldOfStudy::update(modify::operations operation, MySqlCommand^ sqlCmd, Da
 	case modify::operations::add:
 		modify->add(sqlCmd, sqlDt, sqlRd, student);
 		break;
+
+	case modify::operations::deleteStudent:
+		modify->deleteStudent(sqlCmd, sqlDt, sqlRd, student);
+		break;
 	}
 }
 
