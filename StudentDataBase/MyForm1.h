@@ -1,7 +1,12 @@
 #pragma once
+#include <memory>
 #include <mysql.h>
 #include "DataBase.hpp"
-
+#include "FieldOfStudy.hpp"
+#include "Modify.hpp"
+#include <msclr\marshal_cppstd.h>
+#include <map>
+//a
 namespace StudentDataBase {
 
 	using namespace System;
@@ -18,21 +23,27 @@ namespace StudentDataBase {
 	/// </summary>
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
+		DataBase* students = new DataBase();
+		//std::unique_ptr<DataBase> students = std::make_unique<DataBase>();
+		Student* student = new Student();
+		FieldOfStudy* mainField = new FieldOfStudy();
+
 		MySqlConnection^ sqlConn = gcnew MySqlConnection();
 		MySqlCommand^ sqlCmd = gcnew MySqlCommand();
 		DataTable^ sqlDt = gcnew DataTable();
 		MySqlDataAdapter^ sqlDta = gcnew MySqlDataAdapter();
 		MySqlDataReader^ sqlRd;
-	private: System::Windows::Forms::Button^ updataButton;
-	private: System::Windows::Forms::TextBox^ textBoxFirstname;
-	private: System::Windows::Forms::TextBox^ textBoxSecondname;
-	private: System::Windows::Forms::TextBox^ textBoxIndex;
-	private: System::Windows::Forms::TextBox^ textBoxPesel;
-	private: System::Windows::Forms::TextBox^ textBoxFieldOfStudy;
-	private: System::Windows::Forms::TextBox^ textBoxSpecialization;
-	private: System::Windows::Forms::TextBox^ textBoxDegree;
-	private: System::Windows::Forms::TextBox^ textBoxYearOfStudy;
-	private: System::Windows::Forms::TextBox^ textBoxGpa;
+
+	private: System::Windows::Forms::TextBox^ FirstNameTB;
+	private: System::Windows::Forms::TextBox^ SecondNameTB;
+	private: System::Windows::Forms::TextBox^ degreeTB;
+	private: System::Windows::Forms::TextBox^ yearOfStudyTB;
+	private: System::Windows::Forms::TextBox^ gpaTB;
+	private: System::Windows::Forms::TextBox^ IndexTB;
+	private: System::Windows::Forms::TextBox^ FieldOfStudyTB;
+	private: System::Windows::Forms::TextBox^ peselTB;
+	private: System::Windows::Forms::TextBox^ specializationTB;
+	private: System::Windows::Forms::Button^ clearButton;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
@@ -43,64 +54,27 @@ namespace StudentDataBase {
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label10;
-	private: System::Windows::Forms::TextBox^ textBoxEcts;
-	private: System::Windows::Forms::Button^ ResetButton;
+	private: System::Windows::Forms::Button^ deleteButton;
+	private: System::Windows::Forms::Button^ refreshButton;
+	private: System::Windows::Forms::Button^ updateButton;
+	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::TextBox^ searchTextBox;
+	private: System::Windows::Forms::ComboBox^ comboBox1;
 
-		   DataBase* students = new DataBase();
+	private: System::Windows::Forms::TextBox^ ectsTB;
 
 	public:
-
-		TextBox^ getTextBoxFirstname()	// czy takie gettery?
-		{
-			return textBoxFirstname;
-		}
-
-		void resetLabel()
-		{
-			try
-			{
-				textBoxFirstname->Text = "";
-				textBoxSecondname->Text = "";
-				textBoxIndex->Text = "";
-				textBoxPesel->Text = "";
-				textBoxFieldOfStudy->Text = "";
-				textBoxSpecialization->Text = "";
-				textBoxDegree->Text = "";
-				textBoxEcts->Text = "";
-				textBoxYearOfStudy->Text = "";
-				textBoxGpa->Text = "";
-			}
-			catch (Exception^ ex)
-			{
-				MessageBox::Show(ex->Message, "Data Entry Form", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			}
-		}
-
-		void showCells()
-		{
-			textBoxFirstname->Text = dataGridView1->SelectedRows[0]->Cells[0]->Value->ToString();
-			textBoxSecondname->Text = dataGridView1->SelectedRows[0]->Cells[1]->Value->ToString();
-			textBoxIndex->Text = dataGridView1->SelectedRows[0]->Cells[2]->Value->ToString();
-			textBoxPesel->Text = dataGridView1->SelectedRows[0]->Cells[3]->Value->ToString();
-			textBoxFieldOfStudy->Text = dataGridView1->SelectedRows[0]->Cells[4]->Value->ToString();
-			textBoxSpecialization->Text = dataGridView1->SelectedRows[0]->Cells[5]->Value->ToString();
-			textBoxDegree->Text = dataGridView1->SelectedRows[0]->Cells[6]->Value->ToString();
-			textBoxEcts->Text = dataGridView1->SelectedRows[0]->Cells[7]->Value->ToString();
-			textBoxYearOfStudy->Text = dataGridView1->SelectedRows[0]->Cells[8]->Value->ToString();
-			textBoxGpa->Text = dataGridView1->SelectedRows[0]->Cells[9]->Value->ToString();
-		}
-
 		MyForm(void)
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
-
 		}
 
 	protected:
-		/// <summary>
+	private: System::Windows::Forms::Button^ addButton;
+		   /// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
 		~MyForm()
@@ -109,10 +83,12 @@ namespace StudentDataBase {
 			{
 				delete components;
 				delete students;
+				delete mainField;
 			}
 		}
+
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-	protected:
+
 	private: System::Windows::Forms::Button^ button1;
 
 
@@ -130,17 +106,18 @@ namespace StudentDataBase {
 		void InitializeComponent(void)
 		{
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->updataButton = (gcnew System::Windows::Forms::Button());
-			this->textBoxFirstname = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxSecondname = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxIndex = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxPesel = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxFieldOfStudy = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxSpecialization = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxDegree = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxYearOfStudy = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxGpa = (gcnew System::Windows::Forms::TextBox());
+			this->addButton = (gcnew System::Windows::Forms::Button());
+			this->FirstNameTB = (gcnew System::Windows::Forms::TextBox());
+			this->SecondNameTB = (gcnew System::Windows::Forms::TextBox());
+			this->degreeTB = (gcnew System::Windows::Forms::TextBox());
+			this->yearOfStudyTB = (gcnew System::Windows::Forms::TextBox());
+			this->gpaTB = (gcnew System::Windows::Forms::TextBox());
+			this->IndexTB = (gcnew System::Windows::Forms::TextBox());
+			this->FieldOfStudyTB = (gcnew System::Windows::Forms::TextBox());
+			this->ectsTB = (gcnew System::Windows::Forms::TextBox());
+			this->peselTB = (gcnew System::Windows::Forms::TextBox());
+			this->specializationTB = (gcnew System::Windows::Forms::TextBox());
+			this->clearButton = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -151,241 +128,310 @@ namespace StudentDataBase {
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->textBoxEcts = (gcnew System::Windows::Forms::TextBox());
-			this->ResetButton = (gcnew System::Windows::Forms::Button());
+			this->deleteButton = (gcnew System::Windows::Forms::Button());
+			this->refreshButton = (gcnew System::Windows::Forms::Button());
+			this->updateButton = (gcnew System::Windows::Forms::Button());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->searchTextBox = (gcnew System::Windows::Forms::TextBox());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
 			// 
+			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(48, 99);
+			this->dataGridView1->Location = System::Drawing::Point(12, 236);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(537, 515);
+			this->dataGridView1->RowHeadersWidth = 51;
+			this->dataGridView1->Size = System::Drawing::Size(1212, 262);
 			this->dataGridView1->TabIndex = 0;
+			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView1_CellClick);
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView1_CellContentClick);
 			// 
-			// button1
+			// addButton
 			// 
-			this->button1->Location = System::Drawing::Point(495, 70);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
-			this->button1->TabIndex = 1;
-			this->button1->Text = L"button1";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->addButton->Location = System::Drawing::Point(37, 173);
+			this->addButton->Name = L"addButton";
+			this->addButton->Size = System::Drawing::Size(108, 42);
+			this->addButton->TabIndex = 1;
+			this->addButton->Text = L"ADD";
+			this->addButton->UseVisualStyleBackColor = true;
+			this->addButton->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
-			// updataButton
+			// FirstNameTB
 			// 
-			this->updataButton->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->updataButton->Location = System::Drawing::Point(135, 70);
-			this->updataButton->Name = L"updataButton";
-			this->updataButton->Size = System::Drawing::Size(75, 23);
-			this->updataButton->TabIndex = 2;
-			this->updataButton->Text = L"updata";
-			this->updataButton->UseVisualStyleBackColor = true;
-			this->updataButton->Click += gcnew System::EventHandler(this, &MyForm::updataButton_Click);
+			this->FirstNameTB->Location = System::Drawing::Point(24, 47);
+			this->FirstNameTB->Name = L"FirstNameTB";
+			this->FirstNameTB->Size = System::Drawing::Size(100, 20);
+			this->FirstNameTB->TabIndex = 2;
+			this->FirstNameTB->Text = L"FirstName";
 			// 
-			// textBoxFirstname
+			// SecondNameTB
 			// 
-			this->textBoxFirstname->Location = System::Drawing::Point(757, 99);
-			this->textBoxFirstname->Name = L"textBoxFirstname";
-			this->textBoxFirstname->Size = System::Drawing::Size(122, 20);
-			this->textBoxFirstname->TabIndex = 6;
+			this->SecondNameTB->Location = System::Drawing::Point(155, 47);
+			this->SecondNameTB->Name = L"SecondNameTB";
+			this->SecondNameTB->Size = System::Drawing::Size(100, 20);
+			this->SecondNameTB->TabIndex = 3;
+			this->SecondNameTB->Text = L"Secondname";
 			// 
-			// textBoxSecondname
+			// degreeTB
 			// 
-			this->textBoxSecondname->Location = System::Drawing::Point(757, 150);
-			this->textBoxSecondname->Name = L"textBoxSecondname";
-			this->textBoxSecondname->Size = System::Drawing::Size(122, 20);
-			this->textBoxSecondname->TabIndex = 7;
+			this->degreeTB->Location = System::Drawing::Point(767, 47);
+			this->degreeTB->Name = L"degreeTB";
+			this->degreeTB->Size = System::Drawing::Size(100, 20);
+			this->degreeTB->TabIndex = 4;
+			this->degreeTB->Text = L"degree";
 			// 
-			// textBoxIndex
+			// yearOfStudyTB
 			// 
-			this->textBoxIndex->Location = System::Drawing::Point(757, 200);
-			this->textBoxIndex->Name = L"textBoxIndex";
-			this->textBoxIndex->Size = System::Drawing::Size(122, 20);
-			this->textBoxIndex->TabIndex = 8;
+			this->yearOfStudyTB->Location = System::Drawing::Point(1022, 47);
+			this->yearOfStudyTB->Name = L"yearOfStudyTB";
+			this->yearOfStudyTB->Size = System::Drawing::Size(100, 20);
+			this->yearOfStudyTB->TabIndex = 5;
+			this->yearOfStudyTB->Text = L"yearOfStudy";
 			// 
-			// textBoxPesel
+			// gpaTB
 			// 
-			this->textBoxPesel->Location = System::Drawing::Point(757, 255);
-			this->textBoxPesel->Name = L"textBoxPesel";
-			this->textBoxPesel->Size = System::Drawing::Size(122, 20);
-			this->textBoxPesel->TabIndex = 9;
+			this->gpaTB->Location = System::Drawing::Point(1128, 47);
+			this->gpaTB->Name = L"gpaTB";
+			this->gpaTB->Size = System::Drawing::Size(100, 20);
+			this->gpaTB->TabIndex = 6;
+			this->gpaTB->Text = L"GPA";
 			// 
-			// textBoxFieldOfStudy
+			// IndexTB
 			// 
-			this->textBoxFieldOfStudy->Location = System::Drawing::Point(757, 309);
-			this->textBoxFieldOfStudy->Name = L"textBoxFieldOfStudy";
-			this->textBoxFieldOfStudy->Size = System::Drawing::Size(122, 20);
-			this->textBoxFieldOfStudy->TabIndex = 10;
+			this->IndexTB->Location = System::Drawing::Point(286, 47);
+			this->IndexTB->Name = L"IndexTB";
+			this->IndexTB->Size = System::Drawing::Size(100, 20);
+			this->IndexTB->TabIndex = 7;
+			this->IndexTB->Text = L"index";
 			// 
-			// textBoxSpecialization
+			// FieldOfStudyTB
 			// 
-			this->textBoxSpecialization->Location = System::Drawing::Point(757, 357);
-			this->textBoxSpecialization->Name = L"textBoxSpecialization";
-			this->textBoxSpecialization->Size = System::Drawing::Size(122, 20);
-			this->textBoxSpecialization->TabIndex = 11;
+			this->FieldOfStudyTB->Location = System::Drawing::Point(530, 47);
+			this->FieldOfStudyTB->Name = L"FieldOfStudyTB";
+			this->FieldOfStudyTB->Size = System::Drawing::Size(100, 20);
+			this->FieldOfStudyTB->TabIndex = 8;
+			this->FieldOfStudyTB->Text = L"FieldOfStudy";
 			// 
-			// textBoxDegree
+			// ectsTB
 			// 
-			this->textBoxDegree->Location = System::Drawing::Point(757, 411);
-			this->textBoxDegree->Name = L"textBoxDegree";
-			this->textBoxDegree->Size = System::Drawing::Size(122, 20);
-			this->textBoxDegree->TabIndex = 12;
+			this->ectsTB->Location = System::Drawing::Point(907, 47);
+			this->ectsTB->Name = L"ectsTB";
+			this->ectsTB->Size = System::Drawing::Size(100, 20);
+			this->ectsTB->TabIndex = 9;
+			this->ectsTB->Text = L"ECTS";
 			// 
-			// textBoxYearOfStudy
+			// peselTB
 			// 
-			this->textBoxYearOfStudy->Location = System::Drawing::Point(757, 519);
-			this->textBoxYearOfStudy->Name = L"textBoxYearOfStudy";
-			this->textBoxYearOfStudy->Size = System::Drawing::Size(122, 20);
-			this->textBoxYearOfStudy->TabIndex = 13;
+			this->peselTB->Location = System::Drawing::Point(422, 47);
+			this->peselTB->Margin = System::Windows::Forms::Padding(2);
+			this->peselTB->Name = L"peselTB";
+			this->peselTB->Size = System::Drawing::Size(76, 20);
+			this->peselTB->TabIndex = 10;
+			this->peselTB->Text = L"pesel";
 			// 
-			// textBoxGpa
+			// specializationTB
 			// 
-			this->textBoxGpa->Location = System::Drawing::Point(757, 578);
-			this->textBoxGpa->Name = L"textBoxGpa";
-			this->textBoxGpa->Size = System::Drawing::Size(122, 20);
-			this->textBoxGpa->TabIndex = 14;
+			this->specializationTB->Location = System::Drawing::Point(660, 47);
+			this->specializationTB->Margin = System::Windows::Forms::Padding(2);
+			this->specializationTB->Name = L"specializationTB";
+			this->specializationTB->Size = System::Drawing::Size(76, 20);
+			this->specializationTB->TabIndex = 11;
+			this->specializationTB->Text = L"Specialization";
+			// 
+			// clearButton
+			// 
+			this->clearButton->Location = System::Drawing::Point(412, 173);
+			this->clearButton->Name = L"clearButton";
+			this->clearButton->Size = System::Drawing::Size(108, 42);
+			this->clearButton->TabIndex = 12;
+			this->clearButton->Text = L"CLEAR";
+			this->clearButton->UseVisualStyleBackColor = true;
+			this->clearButton->Click += gcnew System::EventHandler(this, &MyForm::clearButton_Click);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(620, 99);
+			this->label1->Location = System::Drawing::Point(21, 19);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(89, 20);
-			this->label1->TabIndex = 15;
-			this->label1->Text = L"Firstname";
+			this->label1->Size = System::Drawing::Size(79, 16);
+			this->label1->TabIndex = 13;
+			this->label1->Text = L"FirstName";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label2->Location = System::Drawing::Point(620, 150);
+			this->label2->Location = System::Drawing::Point(153, 19);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(114, 20);
-			this->label2->TabIndex = 16;
-			this->label2->Text = L"Secondname";
+			this->label2->Size = System::Drawing::Size(102, 16);
+			this->label2->TabIndex = 14;
+			this->label2->Text = L"SecondName";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label3->Location = System::Drawing::Point(620, 200);
+			this->label3->Location = System::Drawing::Point(283, 19);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(51, 20);
-			this->label3->TabIndex = 17;
-			this->label3->Text = L"index";
+			this->label3->Size = System::Drawing::Size(45, 16);
+			this->label3->TabIndex = 15;
+			this->label3->Text = L"Index";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label4->Location = System::Drawing::Point(620, 255);
+			this->label4->Location = System::Drawing::Point(527, 19);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(52, 20);
-			this->label4->TabIndex = 18;
-			this->label4->Text = L"pesel";
+			this->label4->Size = System::Drawing::Size(97, 16);
+			this->label4->TabIndex = 16;
+			this->label4->Text = L"FieldOfStudy";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label5->Location = System::Drawing::Point(620, 309);
+			this->label5->Location = System::Drawing::Point(764, 19);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(108, 20);
-			this->label5->TabIndex = 19;
-			this->label5->Text = L"fieldOfStudy";
+			this->label5->Size = System::Drawing::Size(60, 16);
+			this->label5->TabIndex = 17;
+			this->label5->Text = L"Degree";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label6->Location = System::Drawing::Point(620, 357);
+			this->label6->Location = System::Drawing::Point(904, 21);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(121, 20);
-			this->label6->TabIndex = 20;
-			this->label6->Text = L"Specialization";
+			this->label6->Size = System::Drawing::Size(38, 16);
+			this->label6->TabIndex = 18;
+			this->label6->Text = L"Ects";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label7->Location = System::Drawing::Point(620, 411);
+			this->label7->Location = System::Drawing::Point(1019, 19);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(65, 20);
-			this->label7->TabIndex = 21;
-			this->label7->Text = L"degree";
+			this->label7->Size = System::Drawing::Size(95, 16);
+			this->label7->TabIndex = 19;
+			this->label7->Text = L"YearOfStydy";
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label8->Location = System::Drawing::Point(620, 464);
+			this->label8->Location = System::Drawing::Point(1125, 19);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(43, 20);
-			this->label8->TabIndex = 22;
-			this->label8->Text = L"ects";
+			this->label8->Size = System::Drawing::Size(37, 16);
+			this->label8->TabIndex = 20;
+			this->label8->Text = L"Gpa";
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label9->Location = System::Drawing::Point(620, 519);
+			this->label9->Location = System::Drawing::Point(419, 21);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(108, 20);
-			this->label9->TabIndex = 23;
-			this->label9->Text = L"yearOfStudy";
+			this->label9->Size = System::Drawing::Size(48, 16);
+			this->label9->TabIndex = 21;
+			this->label9->Text = L"Pesel";
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label10->Location = System::Drawing::Point(620, 578);
+			this->label10->Location = System::Drawing::Point(657, 19);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(39, 20);
-			this->label10->TabIndex = 24;
-			this->label10->Text = L"gpa";
+			this->label10->Size = System::Drawing::Size(106, 16);
+			this->label10->TabIndex = 22;
+			this->label10->Text = L"Specialization";
 			// 
-			// textBoxEcts
+			// deleteButton
 			// 
-			this->textBoxEcts->Location = System::Drawing::Point(757, 466);
-			this->textBoxEcts->Name = L"textBoxEcts";
-			this->textBoxEcts->Size = System::Drawing::Size(122, 20);
-			this->textBoxEcts->TabIndex = 25;
+			this->deleteButton->Location = System::Drawing::Point(162, 173);
+			this->deleteButton->Name = L"deleteButton";
+			this->deleteButton->Size = System::Drawing::Size(108, 42);
+			this->deleteButton->TabIndex = 23;
+			this->deleteButton->Text = L"DELETE";
+			this->deleteButton->UseVisualStyleBackColor = true;
+			this->deleteButton->Click += gcnew System::EventHandler(this, &MyForm::deleteButton_Click);
 			// 
-			// ResetButton
+			// refreshButton
 			// 
-			this->ResetButton->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->refreshButton->Location = System::Drawing::Point(537, 173);
+			this->refreshButton->Name = L"refreshButton";
+			this->refreshButton->Size = System::Drawing::Size(108, 42);
+			this->refreshButton->TabIndex = 24;
+			this->refreshButton->Text = L"REFRESH";
+			this->refreshButton->UseVisualStyleBackColor = true;
+			this->refreshButton->Click += gcnew System::EventHandler(this, &MyForm::refreshButton_Click);
+			// 
+			// updateButton
+			// 
+			this->updateButton->Location = System::Drawing::Point(287, 173);
+			this->updateButton->Name = L"updateButton";
+			this->updateButton->Size = System::Drawing::Size(108, 42);
+			this->updateButton->TabIndex = 25;
+			this->updateButton->Text = L"UPDATE";
+			this->updateButton->UseVisualStyleBackColor = true;
+			this->updateButton->Click += gcnew System::EventHandler(this, &MyForm::updateButton_Click);
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->ResetButton->Location = System::Drawing::Point(386, 70);
-			this->ResetButton->Name = L"ResetButton";
-			this->ResetButton->Size = System::Drawing::Size(75, 23);
-			this->ResetButton->TabIndex = 26;
-			this->ResetButton->Text = L"reset";
-			this->ResetButton->UseVisualStyleBackColor = true;
-			this->ResetButton->Click += gcnew System::EventHandler(this, &MyForm::ResetButton_Click);
+			this->label11->Location = System::Drawing::Point(685, 131);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(160, 25);
+			this->label11->TabIndex = 26;
+			this->label11->Text = L"Search Student";
+			// 
+			// searchTextBox
+			// 
+			this->searchTextBox->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->searchTextBox->Location = System::Drawing::Point(690, 177);
+			this->searchTextBox->Name = L"searchTextBox";
+			this->searchTextBox->Size = System::Drawing::Size(155, 29);
+			this->searchTextBox->TabIndex = 27;
+			this->searchTextBox->TextChanged += gcnew System::EventHandler(this, &MyForm::searchTextBox_TextChanged);
+			// 
+			// comboBox1
+			// 
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"1", L"2", L"3" });
+			this->comboBox1->Location = System::Drawing::Point(971, 131);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(121, 21);
+			this->comboBox1->TabIndex = 28;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1016, 653);
-			this->Controls->Add(this->ResetButton);
-			this->Controls->Add(this->textBoxEcts);
+			this->ClientSize = System::Drawing::Size(1236, 510);
+			this->Controls->Add(this->comboBox1);
+			this->Controls->Add(this->searchTextBox);
+			this->Controls->Add(this->label11);
+			this->Controls->Add(this->updateButton);
+			this->Controls->Add(this->refreshButton);
+			this->Controls->Add(this->deleteButton);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->label8);
@@ -396,17 +442,18 @@ namespace StudentDataBase {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->textBoxGpa);
-			this->Controls->Add(this->textBoxYearOfStudy);
-			this->Controls->Add(this->textBoxDegree);
-			this->Controls->Add(this->textBoxSpecialization);
-			this->Controls->Add(this->textBoxFieldOfStudy);
-			this->Controls->Add(this->textBoxPesel);
-			this->Controls->Add(this->textBoxIndex);
-			this->Controls->Add(this->textBoxSecondname);
-			this->Controls->Add(this->textBoxFirstname);
-			this->Controls->Add(this->updataButton);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->clearButton);
+			this->Controls->Add(this->specializationTB);
+			this->Controls->Add(this->peselTB);
+			this->Controls->Add(this->ectsTB);
+			this->Controls->Add(this->FieldOfStudyTB);
+			this->Controls->Add(this->IndexTB);
+			this->Controls->Add(this->gpaTB);
+			this->Controls->Add(this->yearOfStudyTB);
+			this->Controls->Add(this->degreeTB);
+			this->Controls->Add(this->SecondNameTB);
+			this->Controls->Add(this->FirstNameTB);
+			this->Controls->Add(this->addButton);
 			this->Controls->Add(this->dataGridView1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
@@ -417,43 +464,145 @@ namespace StudentDataBase {
 
 		}
 #pragma endregion
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public:
+		void /*std::map<std::string, System::String^>*/ collectData()
+		{
+			msclr::interop::marshal_context context;
+			System::String^ firstNameTBtemp = this->FirstNameTB->Text;
+			System::String^ secondNameTBtemp = this->SecondNameTB->Text;
+			System::String^ indexTBtemp = this->IndexTB->Text;
+			System::String^ peselTBtemp = this->peselTB->Text;
+			System::String^ fieldOfStudyTBtemp = this->FieldOfStudyTB->Text;
+			System::String^ specializationTBtemp = this->specializationTB->Text;
+			System::String^ degreeTBtemp = this->degreeTB->Text;
+			System::String^ ectsTBtemp = this->ectsTB->Text;
+			System::String^ yearOfStudyTBtemp = this->yearOfStudyTB->Text;
+			System::String^ gpaTBtemp = this->gpaTB->Text;
+
+			student->name = context.marshal_as<std::string>(firstNameTBtemp);
+			student->secondName = context.marshal_as<std::string>(secondNameTBtemp);
+			student->index = context.marshal_as<std::string>(indexTBtemp);
+			student->pesel = context.marshal_as<std::string>(peselTBtemp);
+			student->fieldOfStudy = context.marshal_as<std::string>(fieldOfStudyTBtemp);
+			student->specialization = context.marshal_as<std::string>(specializationTBtemp);
+			student->degreeOfStudy = context.marshal_as<std::string>(degreeTBtemp);
+			student->ects = context.marshal_as<std::string>(ectsTBtemp);
+			student->yearOfStudy = context.marshal_as<std::string>(yearOfStudyTBtemp);
+			student->gpa = context.marshal_as<std::string>(gpaTBtemp);
+
+			/*std::map<std::string, System::String^> datas;
+			datas["firstName"] = this->FirstNameTB->Text;
+			datas["secondName"] = this->SecondNameTB->Text;
+			datas["index"] = this->IndexTB->Text;
+			datas["pesel"] = this->peselTB->Text;
+			datas["fieldOfStudy"] = this->FieldOfStudyTB->Text;
+			datas["specialization"] = this->specializationTB->Text;;
+			datas["degree"] = this->degreeTB->Text;
+			datas["ects"] = this->ectsTB->Text;
+			datas["yearOfStudy"] = this->yearOfStudyTB->Text;
+			datas["gpa"] = this->gpaTB->Text;
+
+			return datas;*/
+		};
+
+		public:
+			TextBox^ getFirstname()
+			{
+				return FirstNameTB;
+			}
+		public: void clearTextBoxes() {	// do czyszczenia textboxow (przycisk->CLEAR)
+			FirstNameTB->Text = "";
+			SecondNameTB->Text = "";
+			degreeTB->Text = "";
+			yearOfStudyTB->Text = "";
+			gpaTB->Text = "";
+			IndexTB->Text = "";
+			FieldOfStudyTB->Text = "";
+			peselTB->Text = "";
+			specializationTB->Text = "";
+			ectsTB->Text = "";
+		};
+
+		public: void showRow()	// do wyswietlania danych w textboxach w zaleznosci od wybrnego studenta z dataGridview1
+		{
+			try
+			{
+				FirstNameTB->Text = dataGridView1->SelectedRows[0]->Cells[0]->Value->ToString();
+				SecondNameTB->Text = dataGridView1->SelectedRows[0]->Cells[1]->Value->ToString();
+				IndexTB->Text = dataGridView1->SelectedRows[0]->Cells[2]->Value->ToString();
+				peselTB->Text = dataGridView1->SelectedRows[0]->Cells[3]->Value->ToString();
+				FieldOfStudyTB->Text = dataGridView1->SelectedRows[0]->Cells[4]->Value->ToString();
+				specializationTB->Text = dataGridView1->SelectedRows[0]->Cells[5]->Value->ToString();
+				degreeTB->Text = dataGridView1->SelectedRows[0]->Cells[6]->Value->ToString();
+				ectsTB->Text = dataGridView1->SelectedRows[0]->Cells[7]->Value->ToString();
+				yearOfStudyTB->Text = dataGridView1->SelectedRows[0]->Cells[8]->Value->ToString();
+				gpaTB->Text = dataGridView1->SelectedRows[0]->Cells[9]->Value->ToString();
+			}
+			catch(Exception^ ex)	// zabezpieczenie zeby nie wywalalo od razu programu po zlym kliknieciu
+			{
+				MessageBox::Show("Tu nie klimamy.", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			}
+
+		}
+					
 
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-
-		//students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
-		//dataGridView1->DataSource = sqlDt;
+		
+		students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
+		mainField->viewStudents(sqlCmd, sqlDt, sqlRd);
+		students->disconnectDataBase(sqlRd, sqlConn);
+		dataGridView1->DataSource = sqlDt;
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		
-		if (dataGridView1 == nullptr || dataGridView1->Rows->Count == 0)
-		{
-			students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);	//wywolujemy metode na obiekcie students -
-			// - z klasy DataBase.
-			dataGridView1->DataSource = sqlDt;
-		}
-		else
-			dataGridView1->Rows->Clear();	// ponowne nacisniecie przycisku czysci dataGridView1
+		this->collectData();
+		//std::map<std::string, System::String^>* datas2 = &datas;
+		students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
+		mainField->update(modify::operations::add, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn);
+		mainField->viewStudents(sqlCmd, sqlDt, sqlRd);
+		students->refreshDataBase(sqlConn, sqlDt, sqlDta, dataGridView1);
+		students->disconnectDataBase(sqlRd, sqlConn);
+		dataGridView1->DataSource = sqlDt;
 	}
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-
-		this->showCells();
 	}
-
-	private: System::Void updataButton_Click(System::Object^ sender, System::EventArgs^ e) {
-
-		try 
-		{
-			students->AddToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd); // metoda dodaje nowego studenta do bazy danych
-		}
-		catch (Exception^ ex)
-		{
-			MessageBox::Show(ex->Message, "Data entry form", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
-		}
+	private: System::Void clearButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->clearTextBoxes();
 	}
-	private: System::Void ResetButton_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 
-	this->resetLabel();
-	}
+	this->showRow();
+}
+
+private: System::Void deleteButton_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	this->collectData();
+	students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
+	mainField->update(modify::operations::deleteStudent, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn);
+	students->refreshDataBase(sqlConn, sqlDt, sqlDta, dataGridView1);
+	students->disconnectDataBase(sqlRd, sqlConn);
+}
+private: System::Void refreshButton_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
+	students->refreshDataBase(sqlConn, sqlDt, sqlDta, dataGridView1);
+	students->disconnectDataBase(sqlRd, sqlConn);
+}
+private: System::Void updateButton_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	this->collectData();
+	students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
+	mainField->update(modify::operations::updateStudent, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn);
+	students->refreshDataBase(sqlConn, sqlDt, sqlDta, dataGridView1);
+	students->disconnectDataBase(sqlRd, sqlConn);
+}
+private: System::Void searchTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	this->collectData();
+	students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
+	mainField->update(modify::operations::searchStudent, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn); 
+	//students->refreshDataBase(sqlConn, sqlDt, sqlDta, dataGridView1);
+	students->disconnectDataBase(sqlRd, sqlConn);
+}
 };
 }

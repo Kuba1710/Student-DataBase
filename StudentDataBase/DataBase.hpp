@@ -2,8 +2,10 @@
 #include "FieldOfStudy.hpp"
 #include <memory>
 #include <mysql.h>
+
 using namespace System::Data;
 using namespace MySql::Data::MySqlClient;
+using namespace System::Windows::Forms;
 
 
 
@@ -13,8 +15,7 @@ public:
 	DataBase();
 	void sploadToDataBase();
 	void saveToDataBase();
-	void AddToDataBase(MySqlConnection^ sqlConn, MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataAdapter^ sqlDta, MySqlDataReader^ sqlRd);
 	void connectToDataBase(MySqlConnection^ sqlConn, MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataAdapter^ sqlDta, MySqlDataReader^ sqlRd);
-private:
-	std::unique_ptr<FieldOfStudy> Students;
+	void disconnectDataBase(MySqlDataReader^ sqlRd, MySqlConnection^ sqlConn);
+	void refreshDataBase(MySqlConnection^ sqlConn, DataTable^ sqlDt, MySqlDataAdapter^ sqlDta, DataGridView^ dataGrid);
 };

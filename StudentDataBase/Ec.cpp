@@ -1,4 +1,4 @@
 #include "Ec.hpp"
 
-void Ec::viewStudents() {};
+//void Ec::viewStudents() {};
 //std::vector<Student> Ec::getVectorOfStudents() {};

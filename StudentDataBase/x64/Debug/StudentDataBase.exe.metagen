@@ -20,6 +20,7 @@ Class StudentDataBase.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
-    getTextBoxFirstname(): PrivateScope, Public, HideBySig
-    resetLabel(): PrivateScope, Public, HideBySig
-    showCells(): PrivateScope, Public, HideBySig
+    collectData(): PrivateScope, Public, HideBySig
+    getFirstname(): PrivateScope, Public, HideBySig
+    clearTextBoxes(): PrivateScope, Public, HideBySig
+    showRow(): PrivateScope, Public, HideBySig

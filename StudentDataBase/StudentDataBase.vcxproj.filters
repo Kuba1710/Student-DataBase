@@ -56,5 +56,8 @@
     <ClCompile Include="MyForm1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Modify.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

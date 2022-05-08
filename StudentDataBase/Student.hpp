@@ -11,11 +11,11 @@ struct Student
 	std::string pesel;
 	std::string fieldOfStudy;
 	std::string specialization;
-	unsigned int degreeOfStudy;
-	unsigned int ects;
-	unsigned int yearOfStudy;
-	std::vector<std::map<std::string, unsigned int>> classes; // vector zajec ktory przyjmuje mape key = nazwa zajeci, value =  liczba ects
-	float gpa;
+	std::string degreeOfStudy;
+	std::string ects;
+	std::string yearOfStudy;
+	//std::vector<std::map<std::string, unsigned int>> classes; // vector zajec ktory przyjmuje mape key = nazwa zajeci, value =  liczba ects
+	std::string gpa;
 };
 
 // test git

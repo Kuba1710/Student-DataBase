@@ -3,19 +3,25 @@
 #include <memory>
 #include "Student.hpp"
 #include "Modify.hpp"
+#include <mysql.h>
+using namespace modify;
 
+using namespace MySql::Data::MySqlClient;
+using namespace System::Data;
 
 class FieldOfStudy
 {
 public:
 	FieldOfStudy() = default;
-	virtual void viewStudents();
-	virtual std::vector<Student> getVectorOfStudents();
-	bool ectsNotification(/*moze tutaj bedzie jakis argument*/);
-	bool scholarshipNotification();
+	virtual void viewStudents(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd);
+	void update(modify::operations, MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, MySqlDataAdapter^ sqlAd, const Student* student, DataGridView^ dataGrid, TextBox^ search, MySqlConnection^ conn);
+	//virtual std::vector<Student> getVectorOfStudents();
+	//bool ectsNotification(/*moze tutaj bedzie jakis argument*/);
+	//bool scholarshipNotification();
 	
 
 private:
 	std::vector<Student> groupOfStudents;
-	std::unique_ptr<Modify> modify ;
+protected:
+	std::unique_ptr<modify::Modify> modify ;
 };
