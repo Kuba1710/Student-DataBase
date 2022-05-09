@@ -1,12 +1,3 @@
-﻿  DataBase.cpp
-  Ec.cpp
-  FieldOfStudy.cpp
-  Ief.cpp
-  main.cpp
-C:\Users\EL_kammex\Student-DataBase\StudentDataBase\MyForm1.h(542,21): warning C4101: 'ex': unreferenced local variable
-  Modify.cpp
-  MyForm1.cpp
-C:\Users\EL_kammex\Student-DataBase\StudentDataBase\MyForm1.h(542,21): warning C4101: 'ex': unreferenced local variable
-  Generating Code...
+﻿  Modify.cpp
   DataBase.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   StudentDataBase.vcxproj -> C:\Users\EL_kammex\Student-DataBase\StudentDataBase\x64\Debug\StudentDataBase.exe

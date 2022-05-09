@@ -16,7 +16,7 @@ void FieldOfStudy::viewStudents(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDat
 	
 }
 
-void FieldOfStudy::update(modify::operations operation, MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, MySqlDataAdapter^ sqlAd, const Student* student, DataGridView^ dataGrid, TextBox^ search, MySqlConnection^ conn)
+void FieldOfStudy::update(modify::operations operation, MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, MySqlDataAdapter^ sqlAd, const Student* student, DataGridView^ dataGrid, TextBox^ search, MySqlConnection^ conn, ComboBox^ combo)
 {
 	switch (operation)
 	{
@@ -34,6 +34,10 @@ void FieldOfStudy::update(modify::operations operation, MySqlCommand^ sqlCmd, Da
 
 	case modify::operations::searchStudent:
 		modify->searchStudent( sqlCmd,  sqlDt,  sqlAd, student, dataGrid, search, conn);
+		break;
+
+	case modify::operations::group:
+		modify->groupStudent(sqlCmd, sqlDt, sqlAd, student, dataGrid, search, conn, combo);
 		break;
 
 	}

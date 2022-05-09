@@ -13,7 +13,8 @@ namespace modify
 		add,
 		deleteStudent,
 		updateStudent,
-		searchStudent
+		searchStudent,
+		group
 	};
 
 	class Modify
@@ -24,7 +25,8 @@ namespace modify
 		void deleteStudent(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, const Student* student);
 		void updateStudent(MySqlCommand^ sqlCmd, const Student* student);
 		void searchStudent(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataAdapter^ sqlAd, const Student* student, DataGridView^ dataGrid, TextBox^ search, MySqlConnection^ conn);
-		void castingStudent(System::String^ str, const Student* student);
+		void groupStudent(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataAdapter^ sqlAd, const Student* student, DataGridView^ dataGrid, TextBox^ search, MySqlConnection^ conn, ComboBox^ combo);
+		//void castingStudent(System::String^ str, const Student* student);
 
 	/*private:
 		System::String^ firstName;

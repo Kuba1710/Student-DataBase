@@ -14,7 +14,7 @@ class FieldOfStudy
 public:
 	FieldOfStudy() = default;
 	virtual void viewStudents(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd);
-	void update(modify::operations, MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, MySqlDataAdapter^ sqlAd, const Student* student, DataGridView^ dataGrid, TextBox^ search, MySqlConnection^ conn);
+	void update(modify::operations, MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, MySqlDataAdapter^ sqlAd, const Student* student, DataGridView^ dataGrid, TextBox^ search, MySqlConnection^ conn, ComboBox^ combo);
 	//virtual std::vector<Student> getVectorOfStudents();
 	//bool ectsNotification(/*moze tutaj bedzie jakis argument*/);
 	//bool scholarshipNotification();

@@ -59,7 +59,10 @@ namespace StudentDataBase {
 	private: System::Windows::Forms::Button^ updateButton;
 	private: System::Windows::Forms::Label^ label11;
 	private: System::Windows::Forms::TextBox^ searchTextBox;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::ComboBox^ groupComboBox;
+	private: System::Windows::Forms::Button^ groupButton;
+
+
 
 	private: System::Windows::Forms::TextBox^ ectsTB;
 
@@ -133,7 +136,8 @@ namespace StudentDataBase {
 			this->updateButton = (gcnew System::Windows::Forms::Button());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->searchTextBox = (gcnew System::Windows::Forms::TextBox());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->groupComboBox = (gcnew System::Windows::Forms::ComboBox());
+			this->groupButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -412,21 +416,34 @@ namespace StudentDataBase {
 			this->searchTextBox->TabIndex = 27;
 			this->searchTextBox->TextChanged += gcnew System::EventHandler(this, &MyForm::searchTextBox_TextChanged);
 			// 
-			// comboBox1
+			// groupComboBox
 			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"1", L"2", L"3" });
-			this->comboBox1->Location = System::Drawing::Point(971, 131);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 21);
-			this->comboBox1->TabIndex = 28;
+			this->groupComboBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->groupComboBox->FormattingEnabled = true;
+			this->groupComboBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"ALL", L"EC", L"IEF" });
+			this->groupComboBox->Location = System::Drawing::Point(887, 177);
+			this->groupComboBox->Name = L"groupComboBox";
+			this->groupComboBox->Size = System::Drawing::Size(83, 28);
+			this->groupComboBox->TabIndex = 28;
+			// 
+			// groupButton
+			// 
+			this->groupButton->Location = System::Drawing::Point(887, 121);
+			this->groupButton->Name = L"groupButton";
+			this->groupButton->Size = System::Drawing::Size(83, 40);
+			this->groupButton->TabIndex = 29;
+			this->groupButton->Text = L"GROUP STUDENTS";
+			this->groupButton->UseVisualStyleBackColor = true;
+			this->groupButton->Click += gcnew System::EventHandler(this, &MyForm::groupButton_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1236, 510);
-			this->Controls->Add(this->comboBox1);
+			this->Controls->Add(this->groupButton);
+			this->Controls->Add(this->groupComboBox);
 			this->Controls->Add(this->searchTextBox);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->updateButton);
@@ -558,7 +575,7 @@ namespace StudentDataBase {
 		this->collectData();
 		//std::map<std::string, System::String^>* datas2 = &datas;
 		students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
-		mainField->update(modify::operations::add, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn);
+		mainField->update(modify::operations::add, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn, groupComboBox);
 		mainField->viewStudents(sqlCmd, sqlDt, sqlRd);
 		students->refreshDataBase(sqlConn, sqlDt, sqlDta, dataGridView1);
 		students->disconnectDataBase(sqlRd, sqlConn);
@@ -578,7 +595,7 @@ private: System::Void deleteButton_Click(System::Object^ sender, System::EventAr
 
 	this->collectData();
 	students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
-	mainField->update(modify::operations::deleteStudent, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn);
+	mainField->update(modify::operations::deleteStudent, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn, groupComboBox);
 	students->refreshDataBase(sqlConn, sqlDt, sqlDta, dataGridView1);
 	students->disconnectDataBase(sqlRd, sqlConn);
 }
@@ -592,7 +609,7 @@ private: System::Void updateButton_Click(System::Object^ sender, System::EventAr
 
 	this->collectData();
 	students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
-	mainField->update(modify::operations::updateStudent, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn);
+	mainField->update(modify::operations::updateStudent, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn, groupComboBox);
 	students->refreshDataBase(sqlConn, sqlDt, sqlDta, dataGridView1);
 	students->disconnectDataBase(sqlRd, sqlConn);
 }
@@ -600,8 +617,15 @@ private: System::Void searchTextBox_TextChanged(System::Object^ sender, System::
 
 	this->collectData();
 	students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
-	mainField->update(modify::operations::searchStudent, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn); 
+	mainField->update(modify::operations::searchStudent, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn, groupComboBox);
 	//students->refreshDataBase(sqlConn, sqlDt, sqlDta, dataGridView1);
+	students->disconnectDataBase(sqlRd, sqlConn);
+}
+private: System::Void groupButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	this->collectData();
+	students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
+	mainField->update(modify::operations::group, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn, groupComboBox);
 	students->disconnectDataBase(sqlRd, sqlConn);
 }
 };

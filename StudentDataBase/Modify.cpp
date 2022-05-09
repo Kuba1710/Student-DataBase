@@ -120,7 +120,33 @@ void modify::Modify::searchStudent( MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySq
 	}
 }
 
-//void modify::Modify::castingStudent(System::String^ str)
-//{
-//}
+void modify::Modify::groupStudent(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataAdapter^ sqlAd, const Student* student, DataGridView^ dataGrid, TextBox^ search, MySqlConnection^ conn, ComboBox^ combo)
+{
+	System::String^ firstName = gcnew System::String(student->name.c_str());
+	System::String^ secondName = gcnew System::String(student->secondName.c_str());
+	System::String^ index = gcnew System::String(student->index.c_str());
+	System::String^ pesel = gcnew System::String(student->pesel.c_str());
+	System::String^ fieldOfStudy = gcnew System::String(student->fieldOfStudy.c_str());
+	System::String^ specialization = gcnew System::String(student->specialization.c_str());
+	System::String^ degree = gcnew System::String(student->degreeOfStudy.c_str());
+	System::String^ ects = gcnew System::String(student->ects.c_str());
+	System::String^ yearOfStudy = gcnew System::String(student->yearOfStudy.c_str());
+	System::String^ gpa = gcnew System::String(student->gpa.c_str());
+
+	try
+	{
+		if (combo->Text == "ALL")
+			sqlAd = gcnew MySqlDataAdapter("select * from allstudents", conn);
+		else
+			sqlAd = gcnew MySqlDataAdapter("select * from allstudents where Specialization = '" + combo->Text + "'", conn);
+		
+		sqlCmd->ExecuteNonQuery();
+		sqlDt = gcnew DataTable();
+		sqlAd->Fill(sqlDt);
+		dataGrid->DataSource = sqlDt;
+	}
+	catch (System::Exception^ ex) {
+		MessageBox::Show(ex->Message, "Student db", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+}
 
