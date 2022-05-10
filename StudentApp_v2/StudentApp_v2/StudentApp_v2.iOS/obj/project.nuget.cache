@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "DCTuOU+95ibGE/4xaCaSmGZ8m1ry9H9XkrmRoBGOoM5VNFP130nUf1NJewVM9vhajasM26BW86356IThf/nroQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.iOS\\StudentApp_v2.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\amade\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\amade\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\amade\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}
