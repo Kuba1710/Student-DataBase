@@ -1,0 +1,18 @@
+C:\Users\EL_kammex\Student-DataBase\StudentDataBase\x64\Debug\StudentDataBase.vcxproj.AssemblyReference.cache
+C:\Users\EL_kammex\Student-DataBase\StudentDataBase\x64\Debug\StudentDataBase.MyForm1.resources
+C:\Users\EL_kammex\Student-DataBase\StudentDataBase\x64\Debug\StudentDataBase.vcxproj.GenerateResource.cache
+C:\Users\EL_kammex\Student-DataBase\StudentDataBase\x64\Debug\StudentDataBase.vcxproj.CopyComplete
+C:\Users\EL_kammex\Student-DataBase\StudentDataBase\x64\Debug\StudentDataBase.exe
+C:\Users\EL_kammex\Student-DataBase\StudentDataBase\x64\Debug\MySql.Data.dll
+C:\Users\EL_kammex\Student-DataBase\StudentDataBase\x64\Debug\System.Memory.dll
+C:\Users\EL_kammex\Student-DataBase\StudentDataBase\x64\Debug\System.Numerics.Vectors.dll
+C:\Users\EL_kammex\Student-DataBase\StudentDataBase\x64\Debug\System.Buffers.dll
+C:\Users\EL_kammex\Desktop\db kopia\x64\Debug\StudentDataBase.vcxproj.AssemblyReference.cache
+C:\Users\EL_kammex\Desktop\db kopia\x64\Debug\StudentDataBase.MyForm1.resources
+C:\Users\EL_kammex\Desktop\db kopia\x64\Debug\StudentDataBase.vcxproj.GenerateResource.cache
+C:\Users\EL_kammex\Desktop\db kopia\x64\Debug\StudentDataBase.vcxproj.CopyComplete
+C:\Users\EL_kammex\Desktop\db kopia\x64\Debug\StudentDataBase.exe
+C:\Users\EL_kammex\Desktop\db kopia\x64\Debug\MySql.Data.dll
+C:\Users\EL_kammex\Desktop\db kopia\x64\Debug\System.Memory.dll
+C:\Users\EL_kammex\Desktop\db kopia\x64\Debug\System.Numerics.Vectors.dll
+C:\Users\EL_kammex\Desktop\db kopia\x64\Debug\System.Buffers.dll
