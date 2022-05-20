@@ -4,7 +4,9 @@
 
 using namespace MySql::Data::MySqlClient;
 using namespace System::Data;
+
 using namespace System::Windows::Forms;
+
 
 namespace modify
 {
@@ -15,6 +17,7 @@ namespace modify
 		updateStudent,
 		searchStudent,
 		group
+
 	};
 
 	class Modify

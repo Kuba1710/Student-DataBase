@@ -36,4 +36,3 @@ void DataBase::refreshDataBase(MySqlConnection^ sqlConn, DataTable^ sqlDt, MySql
 	sqlDta->Fill(sqlDt);
 	dataGrid->DataSource = sqlDt;	
 };
-

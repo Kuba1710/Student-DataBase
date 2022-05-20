@@ -17,5 +17,8 @@ public:
 	void saveToDataBase();
 	void connectToDataBase(MySqlConnection^ sqlConn, MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataAdapter^ sqlDta, MySqlDataReader^ sqlRd);
 	void disconnectDataBase(MySqlDataReader^ sqlRd, MySqlConnection^ sqlConn);
+
 	void refreshDataBase(MySqlConnection^ sqlConn, DataTable^ sqlDt, MySqlDataAdapter^ sqlDta, DataGridView^ dataGrid);
+
+private:
 };

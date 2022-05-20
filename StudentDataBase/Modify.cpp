@@ -19,6 +19,7 @@ using namespace System::Windows::Forms;
 	System::String^ gpa = gcnew System::String(student->gpa.c_str());
 } */
 
+
 void modify::Modify::add(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, const Student* student)
 {
 	System::String^ firstName = gcnew System::String(student->name.c_str());
@@ -37,7 +38,7 @@ void modify::Modify::add(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader
 		sqlCmd->CommandText = "INSERT INTO db_students.allstudents (Firstname, Secondname, allstudents.index, pesel, fieldOfStudy, Specialization, degree, ects, yearOfStudy, gpa) VALUES('" + firstName +"', '" + secondName + "', '" + index + "','" + pesel + "', '" + fieldOfStudy + "', '" + specialization + "', '" + degree + "', '" + ects + "', '" + yearOfStudy + "', '" + gpa + "')";
 		sqlRd = sqlCmd->ExecuteReader();
 		sqlDt->Load(sqlRd);
-		MessageBox::Show("Pomyœlnie dodano Studenta: " + firstName + ".", "Student db", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		MessageBox::Show("Pomyï¿½lnie dodano Studenta: " + firstName + ".", "Student db", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
 	catch (System::Exception^ ex)
 	{
@@ -52,7 +53,7 @@ void modify::Modify::deleteStudent(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySql
 	
 	if (index == "")
 	{
-		System::Windows::Forms::MessageBox::Show("Index nie mo¿e byæ pusty", "Error!", System::Windows::Forms::MessageBoxButtons::OK, System::Windows::Forms::MessageBoxIcon::Error);
+		System::Windows::Forms::MessageBox::Show("Index nie moï¿½e byï¿½ pusty", "Error!", System::Windows::Forms::MessageBoxButtons::OK, System::Windows::Forms::MessageBoxIcon::Error);
 	}
 	else
 	{
@@ -61,7 +62,7 @@ void modify::Modify::deleteStudent(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySql
 			sqlCmd->CommandText = "DELETE FROM allstudents WHERE allstudents.index =" + index + "";
 			sqlRd = sqlCmd->ExecuteReader();
 			sqlDt->Load(sqlRd);
-			MessageBox::Show("Pomyœlnie usuniêto Studenta: " + firstName + ".", "Student db", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			MessageBox::Show("Pomyï¿½lnie usuniï¿½to Studenta: " + firstName + ".", "Student db", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		}
 		catch (System::Exception^ ex)	
 		{
@@ -87,7 +88,7 @@ void modify::Modify::updateStudent(MySqlCommand^ sqlCmd, const Student* student)
 	{
 		sqlCmd->CommandText = "update allstudents set Firstname = '" + firstName + "', Secondname = '" + secondName + "', allstudents.index = '" + index + "', pesel = '" + pesel + "', fieldOfStudy = '" + fieldOfStudy + "', Specialization = '" + specialization + "', degree = '" + degree + "', ects = '" + ects + "', yearOfStudy = '" + yearOfStudy + "', gpa = '" + gpa + "' where allstudents.index = '" + index + "'";
 		sqlCmd->ExecuteNonQuery();
-		MessageBox::Show("Pomyœlnie nadpisano Studenta: " + firstName + ".", "Student db", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		MessageBox::Show("Pomyï¿½lnie nadpisano Studenta: " + firstName + ".", "Student db", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
 	catch (System::Exception^ ex) {
 		MessageBox::Show(ex->Message, "Student db", MessageBoxButtons::OK, MessageBoxIcon::Information);
@@ -149,4 +150,5 @@ void modify::Modify::groupStudent(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlD
 		MessageBox::Show(ex->Message, "Student db", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
 }
+
 

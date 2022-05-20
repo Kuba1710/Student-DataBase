@@ -23,6 +23,7 @@ namespace StudentDataBase {
 	/// </summary>
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
+
 		DataBase* students = new DataBase();
 		//std::unique_ptr<DataBase> students = std::make_unique<DataBase>();
 		Student* student = new Student();
@@ -43,6 +44,7 @@ namespace StudentDataBase {
 	private: System::Windows::Forms::TextBox^ FieldOfStudyTB;
 	private: System::Windows::Forms::TextBox^ peselTB;
 	private: System::Windows::Forms::TextBox^ specializationTB;
+
 	private: System::Windows::Forms::Button^ clearButton;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
@@ -61,6 +63,7 @@ namespace StudentDataBase {
 	private: System::Windows::Forms::TextBox^ searchTextBox;
 	private: System::Windows::Forms::ComboBox^ groupComboBox;
 	private: System::Windows::Forms::Button^ groupButton;
+
 
 
 
@@ -120,6 +123,7 @@ namespace StudentDataBase {
 			this->ectsTB = (gcnew System::Windows::Forms::TextBox());
 			this->peselTB = (gcnew System::Windows::Forms::TextBox());
 			this->specializationTB = (gcnew System::Windows::Forms::TextBox());
+
 			this->clearButton = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -138,6 +142,7 @@ namespace StudentDataBase {
 			this->searchTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->groupComboBox = (gcnew System::Windows::Forms::ComboBox());
 			this->groupButton = (gcnew System::Windows::Forms::Button());
+
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -145,19 +150,23 @@ namespace StudentDataBase {
 			// 
 			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+
 			this->dataGridView1->Location = System::Drawing::Point(12, 236);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->Size = System::Drawing::Size(1212, 262);
+
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView1_CellClick);
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView1_CellContentClick);
 			// 
 			// addButton
 			// 
+
 			this->addButton->Location = System::Drawing::Point(37, 173);
 			this->addButton->Name = L"addButton";
 			this->addButton->Size = System::Drawing::Size(108, 42);
+
 			this->addButton->TabIndex = 1;
 			this->addButton->Text = L"ADD";
 			this->addButton->UseVisualStyleBackColor = true;
@@ -165,37 +174,46 @@ namespace StudentDataBase {
 			// 
 			// FirstNameTB
 			// 
+
 			this->FirstNameTB->Location = System::Drawing::Point(24, 47);
 			this->FirstNameTB->Name = L"FirstNameTB";
 			this->FirstNameTB->Size = System::Drawing::Size(100, 20);
+
 			this->FirstNameTB->TabIndex = 2;
 			this->FirstNameTB->Text = L"FirstName";
 			// 
 			// SecondNameTB
 			// 
+
 			this->SecondNameTB->Location = System::Drawing::Point(155, 47);
 			this->SecondNameTB->Name = L"SecondNameTB";
 			this->SecondNameTB->Size = System::Drawing::Size(100, 20);
+
 			this->SecondNameTB->TabIndex = 3;
 			this->SecondNameTB->Text = L"Secondname";
 			// 
 			// degreeTB
 			// 
+
 			this->degreeTB->Location = System::Drawing::Point(767, 47);
 			this->degreeTB->Name = L"degreeTB";
 			this->degreeTB->Size = System::Drawing::Size(100, 20);
+
 			this->degreeTB->TabIndex = 4;
 			this->degreeTB->Text = L"degree";
 			// 
 			// yearOfStudyTB
 			// 
+
 			this->yearOfStudyTB->Location = System::Drawing::Point(1022, 47);
 			this->yearOfStudyTB->Name = L"yearOfStudyTB";
 			this->yearOfStudyTB->Size = System::Drawing::Size(100, 20);
+
 			this->yearOfStudyTB->TabIndex = 5;
 			this->yearOfStudyTB->Text = L"yearOfStudy";
 			// 
 			// gpaTB
+
 			// 
 			this->gpaTB->Location = System::Drawing::Point(1128, 47);
 			this->gpaTB->Name = L"gpaTB";
@@ -436,11 +454,13 @@ namespace StudentDataBase {
 			this->groupButton->Text = L"GROUP STUDENTS";
 			this->groupButton->UseVisualStyleBackColor = true;
 			this->groupButton->Click += gcnew System::EventHandler(this, &MyForm::groupButton_Click);
+
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+
 			this->ClientSize = System::Drawing::Size(1236, 510);
 			this->Controls->Add(this->groupButton);
 			this->Controls->Add(this->groupComboBox);
@@ -460,6 +480,7 @@ namespace StudentDataBase {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->clearButton);
+
 			this->Controls->Add(this->specializationTB);
 			this->Controls->Add(this->peselTB);
 			this->Controls->Add(this->ectsTB);
@@ -523,6 +544,7 @@ namespace StudentDataBase {
 			return datas;*/
 		};
 
+
 		public:
 			TextBox^ getFirstname()
 			{
@@ -563,7 +585,6 @@ namespace StudentDataBase {
 
 		}
 					
-
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		
 		students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
@@ -575,9 +596,11 @@ namespace StudentDataBase {
 		this->collectData();
 		//std::map<std::string, System::String^>* datas2 = &datas;
 		students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
+
 		mainField->update(modify::operations::add, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn, groupComboBox);
 		mainField->viewStudents(sqlCmd, sqlDt, sqlRd);
 		students->refreshDataBase(sqlConn, sqlDt, sqlDta, dataGridView1);
+
 		students->disconnectDataBase(sqlRd, sqlConn);
 		dataGridView1->DataSource = sqlDt;
 	}
