@@ -37,3 +37,10 @@ void DataBase::refreshDataBase(MySqlConnection^ sqlConn, DataTable^ sqlDt, MySql
 	dataGrid->DataSource = sqlDt;	
 };
 
+void DataBase::refreshStudentsECMarks(MySqlConnection^ sqlConn, DataTable^ sqlDt, MySqlDataAdapter^ sqlDta, DataGridView^ dataGrid)
+{
+	sqlDta = gcnew MySqlDataAdapter("select * from ec_courses order by ec_courses.index", sqlConn);
+	sqlDt = gcnew DataTable();
+	sqlDta->Fill(sqlDt);
+	dataGrid->DataSource = sqlDt;
+};

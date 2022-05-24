@@ -119,24 +119,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="EC_courses.hpp">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="DataBase.hpp" />
     <ClInclude Include="Ec.hpp" />
     <ClInclude Include="FieldOfStudy.hpp" />
     <ClInclude Include="Ief.hpp" />
+    <ClInclude Include="IEF_courses.hpp">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Modify.hpp" />
-    <ClInclude Include="MyForm1.h">
+    <ClInclude Include="MyForm1.hpp">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Student.hpp" />
+    <ClInclude Include="test.hpp">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EC_courses.cpp" />
     <ClCompile Include="DataBase.cpp" />
     <ClCompile Include="Ec.cpp" />
     <ClCompile Include="FieldOfStudy.cpp" />
     <ClCompile Include="Ief.cpp" />
+    <ClCompile Include="IEF_courses.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Modify.cpp" />
     <ClCompile Include="MyForm1.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MySql.Data">
@@ -149,9 +161,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EC_courses.resx">
+      <DependentUpon>EC_courses.hpp</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IEF_courses.resx">
+      <DependentUpon>IEF_courses.hpp</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm1.resx">
-      <DependentUpon>MyForm1.h</DependentUpon>
+      <DependentUpon>MyForm1.hpp</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="test.resx">
+      <DependentUpon>test.hpp</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

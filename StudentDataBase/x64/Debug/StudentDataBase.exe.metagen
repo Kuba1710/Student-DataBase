@@ -1,4 +1,7 @@
+  StudentDataBase.EC_courses.resources - Embedded, ContainedInManifestFile, 
+  StudentDataBase.IEF_courses.resources - Embedded, ContainedInManifestFile, 
   StudentDataBase.MyForm1.resources - Embedded, ContainedInManifestFile, 
+  StudentDataBase.test.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly StudentDataBase, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
 	hash=SHA1, flags=PublicKey
@@ -16,11 +19,24 @@ Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Class StudentDataBase.EC_courses: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.Windows.Forms.DataGridView, System.Windows.Forms.TextBox, System.Windows.Forms.ComboBox, Student*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class StudentDataBase.IEF_courses: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class StudentDataBase.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
+    getDataGrid(): PrivateScope, Public, HideBySig
+    getsearchTextBox(): PrivateScope, Public, HideBySig
+    getCombo(): PrivateScope, Public, HideBySig
     collectData(): PrivateScope, Public, HideBySig
     getFirstname(): PrivateScope, Public, HideBySig
     clearTextBoxes(): PrivateScope, Public, HideBySig
     showRow(): PrivateScope, Public, HideBySig
+    addStudent2(): PrivateScope, Public, HideBySig
+Class StudentDataBase.test: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

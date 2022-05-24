@@ -16,3 +16,6 @@ C:\Users\EL_kammex\Desktop\db kopia\x64\Debug\MySql.Data.dll
 C:\Users\EL_kammex\Desktop\db kopia\x64\Debug\System.Memory.dll
 C:\Users\EL_kammex\Desktop\db kopia\x64\Debug\System.Numerics.Vectors.dll
 C:\Users\EL_kammex\Desktop\db kopia\x64\Debug\System.Buffers.dll
+C:\Users\EL_kammex\Student-DataBase\StudentDataBase\x64\Debug\StudentDataBase.EC_courses.resources
+C:\Users\EL_kammex\Student-DataBase\StudentDataBase\x64\Debug\StudentDataBase.IEF_courses.resources
+C:\Users\EL_kammex\Student-DataBase\StudentDataBase\x64\Debug\StudentDataBase.test.resources
