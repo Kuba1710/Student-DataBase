@@ -15,3 +15,6 @@ C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\Student
 C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\StudentApp_v2\obj\Debug\netstandard2.0\refint\StudentApp_v2.dll
 C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\StudentApp_v2\obj\Debug\netstandard2.0\StudentApp_v2.pdb
 C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\StudentApp_v2\obj\Debug\netstandard2.0\ref\StudentApp_v2.dll
+C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\StudentApp_v2\obj\Debug\netstandard2.0\Views\enrollmentPage.xaml.g.cs
+C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\StudentApp_v2\obj\Debug\netstandard2.0\Views\personalDataPage.xaml.g.cs
+C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\StudentApp_v2\obj\Debug\netstandard2.0\Views\schedulePage.xaml.g.cs

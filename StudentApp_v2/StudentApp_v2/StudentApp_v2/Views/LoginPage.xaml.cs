@@ -20,7 +20,7 @@ namespace StudentApp_v2.Views
         }
         private async void LoginClicked(object sender, EventArgs e)
         {
-            var user = new User();
+            User user = new User();
 
             user.setEmail(emailEntry.Text);
             user.setPassword(passwordEntry.Text);

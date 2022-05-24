@@ -6,18 +6,25 @@ namespace StudentApp_v2.Models
 {
     public class User
     {
-        private string Email { get; set; }
+        private string email;
+        private string password;
 
-        private string password { get; set; }
+        public string Email
+        {
+            get { return email; }
+            set 
+            { 
+                email = value; 
+            }
+        }
 
+       public void setPassword(string password)
+        {
+            password = password;
+        }
         public void setEmail(string email)
         {
-            Email = email;
+            email = email;
         }
-        public void setPassword(string pass)
-        {
-            password = pass;
-        }
-
     }
 }

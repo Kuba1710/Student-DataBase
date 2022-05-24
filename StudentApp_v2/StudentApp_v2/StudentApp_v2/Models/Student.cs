@@ -6,15 +6,24 @@ namespace StudentApp_v2.Models
 {
     public class Studnet : User
     {
-        private string Id { get; set; }
-        private string Name { get; set; }
-        private string Surname { get; set; }
-        private string Adress { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Adress { get; set; }
+        public string Index { get; set; }
+        public string Ects { get; set; }
+        public string Specialization { get; set; }
+        public string AvgGrade { get; set; }
 
-        private string Index { get; set; }
-        private string[] Courses { get; set; }
-        private int Ects { get; set; }
-        private int Specialization { get; set; }
-        private int AvgGrade { get; set; }
+        public string[] getPersonalData()
+        {
+            string[] data = new string[9];
+            return data;
+         
+        }
+        private double calcAvgGrade()
+        {
+            return 2.56f;
+        }
     }
 }
