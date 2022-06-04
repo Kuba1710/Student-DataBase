@@ -10,9 +10,9 @@ namespace modify
 {
 	enum class operations
 	{
-		updateEC,
-		deleteEC,
-		addEC,
+		//updateEC,
+		//deleteEC,
+		//addEC,
 		add,
 		deleteStudent,
 		updateStudent,
@@ -23,14 +23,14 @@ namespace modify
 	class Modify
 	{
 	public:
-		void updateECcourses(MySqlCommand^ sqlCmd, array <TextBox^>^ coursesTextBoxes);
-		void deleteECcourses(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, array <TextBox^>^ coursesTextBoxes);
-		void addECcourses(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, array <TextBox^>^ coursesTextBoxes);
-		float calculateAverrage(array <TextBox^>^ coursesTextBoxes);
-		int calculateECTS(array <TextBox^>^ coursesTextBoxes);
-		void add(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, const Student* student, array <TextBox^>^ coursesTextBoxes);
+		//void updateECcourses(MySqlCommand^ sqlCmd, array <TextBox^>^ coursesTextBoxes);
+		//void deleteECcourses(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, array <TextBox^>^ coursesTextBoxes);
+		//void addECcourses(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, array <TextBox^>^ coursesTextBoxes);
+		//float calculateAverrage(array <TextBox^>^ coursesTextBoxes);
+		//int calculateECTS(array <TextBox^>^ coursesTextBoxes);
+		void add(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, const Student* student);
 		void deleteStudent(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, const Student* student);
-		void updateStudent(MySqlCommand^ sqlCmd, const Student* student, array <TextBox^>^ coursesTextBoxes);
+		void updateStudent(MySqlCommand^ sqlCmd, const Student* student);
 		void searchStudent(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataAdapter^ sqlAd, const Student* student, DataGridView^ dataGrid, TextBox^ search, MySqlConnection^ conn);
 		void groupStudent(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataAdapter^ sqlAd, const Student* student, DataGridView^ dataGrid, TextBox^ search, MySqlConnection^ conn, ComboBox^ combo);
 		//void castingStudent(System::String^ str, const Student* student);

@@ -4,6 +4,7 @@
 #include "DataBase.hpp"
 #include "FieldOfStudy.hpp"
 #include "Modify.hpp"
+#include "Ec.hpp"
 
 namespace StudentDataBase {
 
@@ -20,21 +21,22 @@ namespace StudentDataBase {
 	/// </summary>
 	public ref class EC_courses : public System::Windows::Forms::Form
 	{
-		DataBase* studentDb = new DataBase();
-		Student* students = new Student();
+		Ec *EcStudentObject = new Ec();
+		DataBase* studentDataBaseObject = new DataBase();
+		Student* studentObject = new Student();
 
-		FieldOfStudy* mainField = new FieldOfStudy();
+		FieldOfStudy* mainFieldObject = new FieldOfStudy();
 
-		MySqlConnection^ sqlConn = gcnew MySqlConnection();
-		MySqlCommand^ sqlCmd = gcnew MySqlCommand();
-		DataTable^ sqlDt = gcnew DataTable();
-		MySqlDataAdapter^ sqlDta = gcnew MySqlDataAdapter();
-		MySqlDataReader^ sqlRd;
+		MySqlConnection^ sqlConnObject = gcnew MySqlConnection();
+		MySqlCommand^ sqlCmdObject = gcnew MySqlCommand();
+		DataTable^ sqlDtObject = gcnew DataTable();
+		MySqlDataAdapter^ sqlDtaObject = gcnew MySqlDataAdapter();
+		MySqlDataReader^ sqlRdObject;
 
-		DataGridView^ dataGrid = gcnew DataGridView();
-		TextBox^ searchTB = gcnew TextBox();
-		ComboBox^ cb = gcnew ComboBox();
-		TextBox^ studentIndex = gcnew TextBox();
+		DataGridView^ dataGridObject = gcnew DataGridView();
+		TextBox^ searchTBObject = gcnew TextBox();
+		ComboBox^ cbObject = gcnew ComboBox();
+		TextBox^ studentIndexObject = gcnew TextBox();
 		
 	
 	private: array <TextBox^>^ coursesTextBoxes;
@@ -44,11 +46,11 @@ namespace StudentDataBase {
 		{
 			InitializeComponent();
 			coursesTextBoxes = gcnew array<TextBox^>{indexTb, wsopTb, poTb, pulTb, psTb, wscTb, PiITb};
-			dataGrid = dt;
-			searchTB = search;
-			cb = combo;
-			students = st;
-			studentIndex = index;
+			dataGridObject = dt;
+			searchTBObject = search;
+			cbObject = combo;
+			studentObject = st;
+			studentIndexObject = index;
 		}
 
 	protected:
@@ -60,9 +62,10 @@ namespace StudentDataBase {
 			if (components)
 			{
 				delete components;
-				delete students;
-				delete mainField;
-				delete studentDb;
+				delete studentObject;
+				delete mainFieldObject;
+				delete studentDataBaseObject;
+				delete EcStudentObject;
 			}
 		}
 
@@ -340,17 +343,18 @@ namespace StudentDataBase {
 
 		if (checkMarks())
 		{
-			studentDb->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
+			studentObject->gpa = EcStudentObject->calculateAverrage(coursesTextBoxes);
+			studentObject->ects = EcStudentObject->calculateECTS(coursesTextBoxes);
+			studentDataBaseObject->connectToDataBase(sqlConnObject, sqlCmdObject, sqlDtObject, sqlDtaObject, sqlRdObject);
 			
-
 			//dodawanie studenta + liczenie sredniej && ects
-			mainField->update(modify::operations::add, sqlCmd, sqlDt, sqlRd, sqlDta, students, dataGrid, searchTB, sqlConn, cb, coursesTextBoxes);
+			mainFieldObject->update(modify::operations::add, sqlCmdObject, sqlDtObject, sqlRdObject, sqlDtaObject, studentObject, dataGridObject, searchTBObject, sqlConnObject, cbObject);
 			//dodawanie ocen
-			mainField->update(modify::operations::addEC, sqlCmd, sqlDt, sqlRd, sqlDta, students, dataGrid, searchTB, sqlConn, cb, coursesTextBoxes);
-			mainField->viewStudents(sqlCmd, sqlDt, sqlRd);
-			studentDb->refreshDataBase(sqlConn, sqlDt, sqlDta, dataGrid);
-			studentDb->disconnectDataBase(sqlRd, sqlConn);
-			dataGrid->DataSource = sqlDt;
+			EcStudentObject->addECcourses(sqlCmdObject, sqlDtObject, sqlRdObject, coursesTextBoxes);
+			mainFieldObject->viewStudents(sqlCmdObject, sqlDtObject, sqlRdObject);
+			studentDataBaseObject->refreshDataBase(sqlConnObject, sqlDtObject, sqlDtaObject, dataGridObject);
+			studentDataBaseObject->disconnectDataBase(sqlRdObject, sqlConnObject);
+			dataGridObject->DataSource = sqlDtObject;
 			this->Hide();
 		}
 		else
@@ -358,17 +362,19 @@ namespace StudentDataBase {
 	}
 private: System::Void EC_courses_Load(System::Object^ sender, System::EventArgs^ e) {
 
-	indexTb->Text = studentIndex->Text;
+	indexTb->Text = studentIndexObject->Text;
 }
 private: System::Void updateButton_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	if (checkMarks())
 	{
-		studentDb->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
-		mainField->update(modify::operations::updateStudent, sqlCmd, sqlDt, sqlRd, sqlDta, students, dataGrid, searchTB, sqlConn, cb, coursesTextBoxes);
-		mainField->update(modify::operations::updateEC, sqlCmd, sqlDt, sqlRd, sqlDta, students, dataGrid, searchTB, sqlConn, cb, coursesTextBoxes);
-		studentDb->refreshDataBase(sqlConn, sqlDt, sqlDta, dataGrid);
-		studentDb->disconnectDataBase(sqlRd, sqlConn);
+		studentObject->gpa = EcStudentObject->calculateAverrage(coursesTextBoxes);
+		studentObject->ects = EcStudentObject->calculateECTS(coursesTextBoxes);
+		studentDataBaseObject->connectToDataBase(sqlConnObject, sqlCmdObject, sqlDtObject, sqlDtaObject, sqlRdObject);
+		mainFieldObject->update(modify::operations::updateStudent, sqlCmdObject, sqlDtObject, sqlRdObject, sqlDtaObject, studentObject, dataGridObject, searchTBObject, sqlConnObject, cbObject);
+		EcStudentObject->updateECcourses(sqlCmdObject, coursesTextBoxes);
+		studentDataBaseObject->refreshDataBase(sqlConnObject, sqlDtObject, sqlDtaObject, dataGridObject);
+		studentDataBaseObject->disconnectDataBase(sqlRdObject, sqlConnObject);
 		this->Hide();
 	}
 	else

@@ -1,13 +1,24 @@
-﻿  MyForm1.cpp
+﻿  EC_courses.cpp
+  MyForm1.cpp
+  Generating Code...
   EC_courses.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-main.obj : error LNK2005: "const FieldOfStudy::`vftable'" (??_7FieldOfStudy@@6B@) already defined in EC_courses.obj
 main.obj : error LNK2022: metadata operation failed (80131187) : Niespójne deklaracje metod w zduplikowanych typach (typy: StudentDataBase.EC_courses; metody: .ctor): (0x06000017).
 main.obj : error LNK2022: metadata operation failed (801311D6) : Inna liczba metod w zduplikowanych typach (StudentDataBase.EC_courses): (0x02000007).
+main.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.EC_courses; pola: studentDb): (0x04000176).
+main.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.EC_courses; pola: students): (0x04000178).
+main.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.EC_courses; pola: mainField): (0x0400017a).
+main.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.EC_courses; pola: sqlConn): (0x0400017b).
+main.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.EC_courses; pola: sqlCmd): (0x0400017c).
+main.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.EC_courses; pola: sqlDt): (0x0400017d).
+main.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.EC_courses; pola: sqlDta): (0x0400017e).
+main.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.EC_courses; pola: sqlRd): (0x0400017f).
+main.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.EC_courses; pola: dataGrid): (0x04000180).
+main.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.EC_courses; pola: searchTB): (0x04000181).
+main.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.EC_courses; pola: cb): (0x04000182).
 main.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.EC_courses; pola: IndexTB): (0x0400018e).
 main.obj : error LNK2022: metadata operation failed (801311D7) : Inna liczba pól w zduplikowanych typach (StudentDataBase.EC_courses): (0x02000007).
-MyForm1.obj : error LNK2022: metadata operation failed (80131187) : Niespójne deklaracje metod w zduplikowanych typach (typy: StudentDataBase.MyForm; metody: EcCoursesButton_Click): (0x06000037).
-MyForm1.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.MyForm; pola: error): (0x040001af).
-MyForm1.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.MyForm; pola: EcCoursesButton): (0x040001cb).
+MyForm1.obj : error LNK2022: metadata operation failed (801311D6) : Inna liczba metod w zduplikowanych typach (StudentDataBase.MyForm): (0x02000009).
 MyForm1.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.MyForm; pola: iefCoursesButton): (0x040001cc).
+MyForm1.obj : error LNK2022: metadata operation failed (80131188) : Niespójne deklaracje pól w zduplikowanych typach (typy: StudentDataBase.MyForm; pola: EcCoursesButton): (0x040001cd).
 MyForm1.obj : error LNK2022: metadata operation failed (801311D7) : Inna liczba pól w zduplikowanych typach (StudentDataBase.MyForm): (0x02000009).
 LINK : fatal error LNK1255: link failed because of metadata errors

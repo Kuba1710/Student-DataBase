@@ -35,7 +35,6 @@ namespace StudentDataBase {
 		DataTable^ sqlDt = gcnew DataTable();
 		MySqlDataAdapter^ sqlDta = gcnew MySqlDataAdapter();
 		MySqlDataReader^ sqlRd;
-		array <TextBox^>^ error;
 
 	private: System::Windows::Forms::TextBox^ FirstNameTB;
 	private: System::Windows::Forms::TextBox^ SecondNameTB;
@@ -64,14 +63,9 @@ namespace StudentDataBase {
 	private: System::Windows::Forms::TextBox^ searchTextBox;
 	private: System::Windows::Forms::ComboBox^ groupComboBox;
 	private: System::Windows::Forms::Button^ groupButton;
-	private: System::Windows::Forms::Button^ EcCoursesButton;
+
 	private: System::Windows::Forms::Button^ iefCoursesButton;
-
-
-
-
-
-
+	private: System::Windows::Forms::Button^ EcCoursesButton;
 
 
 	private: System::Windows::Forms::TextBox^ ectsTB;
@@ -80,7 +74,6 @@ namespace StudentDataBase {
 		MyForm(void)
 		{
 			InitializeComponent();
-			error = gcnew array<TextBox^>{};
 		}
 
 	protected:
@@ -162,8 +155,8 @@ namespace StudentDataBase {
 			this->searchTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->groupComboBox = (gcnew System::Windows::Forms::ComboBox());
 			this->groupButton = (gcnew System::Windows::Forms::Button());
-			this->EcCoursesButton = (gcnew System::Windows::Forms::Button());
 			this->iefCoursesButton = (gcnew System::Windows::Forms::Button());
+			this->EcCoursesButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -468,18 +461,6 @@ namespace StudentDataBase {
 			this->groupButton->UseVisualStyleBackColor = true;
 			this->groupButton->Click += gcnew System::EventHandler(this, &MyForm::groupButton_Click);
 			// 
-			// EcCoursesButton
-			// 
-			this->EcCoursesButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->EcCoursesButton->Location = System::Drawing::Point(978, 168);
-			this->EcCoursesButton->Name = L"EcCoursesButton";
-			this->EcCoursesButton->Size = System::Drawing::Size(100, 41);
-			this->EcCoursesButton->TabIndex = 30;
-			this->EcCoursesButton->Text = L"Show EcCourses";
-			this->EcCoursesButton->UseVisualStyleBackColor = true;
-			this->EcCoursesButton->Click += gcnew System::EventHandler(this, &MyForm::EcCoursesButton_Click);
-			// 
 			// iefCoursesButton
 			// 
 			this->iefCoursesButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -490,6 +471,18 @@ namespace StudentDataBase {
 			this->iefCoursesButton->TabIndex = 31;
 			this->iefCoursesButton->Text = L"Show IefCourses";
 			this->iefCoursesButton->UseVisualStyleBackColor = true;
+			// 
+			// EcCoursesButton
+			// 
+			this->EcCoursesButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->EcCoursesButton->Location = System::Drawing::Point(978, 168);
+			this->EcCoursesButton->Name = L"EcCoursesButton";
+			this->EcCoursesButton->Size = System::Drawing::Size(100, 41);
+			this->EcCoursesButton->TabIndex = 30;
+			this->EcCoursesButton->Text = L"Show EcCourses";
+			this->EcCoursesButton->UseVisualStyleBackColor = true;
+			//this->EcCoursesButton->Click += gcnew System::EventHandler(this, &MyForm::EcCoursesButton_Click);
 			// 
 			// MyForm
 			// 
@@ -666,9 +659,9 @@ private: System::Void deleteButton_Click(System::Object^ sender, System::EventAr
 	this->collectData();
 	students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
 	//usuwanie studenta
-	mainField->update(modify::operations::deleteStudent, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn, groupComboBox, error);
+	mainField->update(modify::operations::deleteStudent, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn, groupComboBox);
 	//usuwanie kursow
-	mainField->update(modify::operations::deleteEC, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn, groupComboBox, error);
+	//mainField->update(modify::operations::deleteEC, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn);
 	students->refreshDataBase(sqlConn, sqlDt, sqlDta, dataGridView1);
 	students->disconnectDataBase(sqlRd, sqlConn);
 }
@@ -698,7 +691,7 @@ private: System::Void searchTextBox_TextChanged(System::Object^ sender, System::
 
 	this->collectData();
 	students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
-	mainField->update(modify::operations::searchStudent, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn, groupComboBox, error);
+	mainField->update(modify::operations::searchStudent, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn, groupComboBox);
 	//students->refreshDataBase(sqlConn, sqlDt, sqlDta, dataGridView1);
 	students->disconnectDataBase(sqlRd, sqlConn);
 }
@@ -706,7 +699,7 @@ private: System::Void groupButton_Click(System::Object^ sender, System::EventArg
 	
 	this->collectData();
 	students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
-	mainField->update(modify::operations::group, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn, groupComboBox, error);
+	mainField->update(modify::operations::group, sqlCmd, sqlDt, sqlRd, sqlDta, student, dataGridView1, searchTextBox, sqlConn, groupComboBox);
 	students->disconnectDataBase(sqlRd, sqlConn);
 }
 //private: System::Void ecMarks_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -716,12 +709,12 @@ private: System::Void groupButton_Click(System::Object^ sender, System::EventArg
 //	students->disconnectDataBase(sqlRd, sqlConn);
 //	dataGridView1->DataSource = sqlDt;
 //}
-private: System::Void EcCoursesButton_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
-	students->refreshStudentsECMarks(sqlConn, sqlDt, sqlDta, dataGridView1);
-	students->disconnectDataBase(sqlRd, sqlConn);
-	dataGridView1->DataSource = sqlDt;
-}
+//private: System::Void EcCoursesButton_Click(System::Object^ sender, System::EventArgs^ e) {
+//
+//	students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
+//	students->refreshStudentsECMarks(sqlConn, sqlDt, sqlDta, dataGridView1);
+//	students->disconnectDataBase(sqlRd, sqlConn);
+//	dataGridView1->DataSource = sqlDt;
+//}
 };
 }

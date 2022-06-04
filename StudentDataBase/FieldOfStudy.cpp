@@ -16,31 +16,19 @@ void FieldOfStudy::viewStudents(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDat
 	
 }
 
-void FieldOfStudy::viewStudentsECMarks(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd)
-{
-	sqlCmd->CommandText = "Select * from db_students.ec_courses";
-	sqlRd = sqlCmd->ExecuteReader();
-	sqlDt->Load(sqlRd);
-}
+//void FieldOfStudy::viewStudentsECMarks(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd)
+//{
+//	sqlCmd->CommandText = "Select * from db_students.ec_courses";
+//	sqlRd = sqlCmd->ExecuteReader();
+//	sqlDt->Load(sqlRd);
+//}
 
-void FieldOfStudy::update(modify::operations operation, MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, MySqlDataAdapter^ sqlAd, const Student* student, DataGridView^ dataGrid, TextBox^ search, MySqlConnection^ conn, ComboBox^ combo, array <TextBox^>^ coursesTextBoxes)
+void FieldOfStudy::update(modify::operations operation, MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, MySqlDataAdapter^ sqlAd, const Student* student, DataGridView^ dataGrid, TextBox^ search, MySqlConnection^ conn, ComboBox^ combo)
 {
 	switch (operation)
 	{
-	case modify::operations::updateEC:
-		modify->updateECcourses(sqlCmd, coursesTextBoxes);
-		break;
-
-	case modify::operations::deleteEC:
-		modify->deleteECcourses(sqlCmd, sqlDt, sqlRd, coursesTextBoxes);
-		break;
-
-	case modify::operations::addEC:
-		modify->addECcourses(sqlCmd, sqlDt, sqlRd, coursesTextBoxes);
-		break;
-
 	case modify::operations::add:
-		modify->add(sqlCmd, sqlDt, sqlRd, student, coursesTextBoxes);
+		modify->add(sqlCmd, sqlDt, sqlRd, student);
 		break;
 
 	case modify::operations::deleteStudent:
@@ -48,7 +36,7 @@ void FieldOfStudy::update(modify::operations operation, MySqlCommand^ sqlCmd, Da
 		break;
 
 	case modify::operations::updateStudent:
-		modify->updateStudent(sqlCmd, student, coursesTextBoxes);
+		modify->updateStudent(sqlCmd, student);
 		break;
 
 	case modify::operations::searchStudent:
