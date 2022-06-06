@@ -12,9 +12,6 @@ namespace StudentApp_v2.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private string email;
-        private string password;
-
       
     }
 }

@@ -7,11 +7,12 @@
              >
     <ContentPage.Content>
         <StackLayout Padding="40" VerticalOptions="Center">
-            <Label Text="E-mail:" />
-            <Entry x:Name ="emailEntry" Placeholder="E-mail" />
+            <Label Text="Index:" />
+            <Entry x:Name ="indexEntry" Placeholder="Index" />
             <Label Text="Password: " />
             <Entry x:Name ="passwordEntry"  IsPassword="True" Placeholder="Password" />
-            <Button Text="Login" Clicked="LoginClicked" />
+            <Button x:Name="loginButton" Text="Login" Clicked="LoginClicked" />
+            <Label x:Name="messageLabel" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

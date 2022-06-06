@@ -5,7 +5,6 @@ C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\Student
 C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\StudentApp_v2\obj\Debug\netstandard2.0\StudentApp_v2.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\StudentApp_v2\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\StudentApp_v2\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
-C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\StudentApp_v2\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
 C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\StudentApp_v2\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
 C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\StudentApp_v2\obj\Debug\netstandard2.0\StudentApp_v2.AssemblyInfoInputs.cache
 C:\Users\amade\source\repos\Student-DataBase\StudentApp_v2\StudentApp_v2\StudentApp_v2\obj\Debug\netstandard2.0\StudentApp_v2.AssemblyInfo.cs

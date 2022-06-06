@@ -4,7 +4,8 @@
        xmlns:local="clr-namespace:StudentApp_v2.Views"
        Title="StudentApp_v2"
        x:Class="StudentApp_v2.AppShell"
-       Shell.FlyoutBehavior="Disabled" >
+       Shell.FlyoutBehavior="Disabled" 
+       >
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -32,6 +33,17 @@
     <ShellItem Route="LoginPage" FlyoutItemIsVisible ="False">
         <ShellContent  ContentTemplate="{DataTemplate local:LoginPage}" />
     </ShellItem>
+    <TabBar>
+        <Tab Title="Personal Data" Icon="">
+            <ShellContent ContentTemplate="{DataTemplate local:personalDataPage}" Route="personalDataPage" />
+        </Tab>
+        <Tab Title="Schedule" Icon="">
+            <ShellContent ContentTemplate="{DataTemplate local:schedulePage}" Route="schedulePage" />
+        </Tab>
+        <Tab Title="Enrollment" Icon="">
+            <ShellContent ContentTemplate="{DataTemplate local:enrollmentPage}" Route="enrollmentPage" />
+        </Tab>
+    </TabBar>
 
 
 </Shell>

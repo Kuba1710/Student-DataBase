@@ -16,5 +16,10 @@ namespace StudentApp_v2.Views
         {
             InitializeComponent();
         }
+
+        private void courseButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

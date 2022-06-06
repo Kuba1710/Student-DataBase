@@ -1,12 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StudentApp_v2.Views.schedulePage">
+             x:Class="StudentApp_v2.Views.schedulePage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label
+                x:Name="scheduleLabel"
+                Text="Schedule"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+
+            <Frame x:Name="scheduleFrame" HasShadow="False">
+                <Grid RowDefinitions="Auto" ColumnDefinitions="*,*,*,*,*,*"/>
+                
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

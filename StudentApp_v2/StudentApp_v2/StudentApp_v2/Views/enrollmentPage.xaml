@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StudentApp_v2.Views.enrollmentPage">
+             x:Class="StudentApp_v2.Views.enrollmentPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             >
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="Here you can sign up for all the courses"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Label Text="Course Code:" x:Name="courseLabel" />
+            <Entry x:Name ="courseEntry" Placeholder="Course Code" />
+            <Button x:Name="courseButton" Text="Confirm" Clicked="courseButton_Clicked" />
+            <Label x:Name="feedbackMessage" Text="" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

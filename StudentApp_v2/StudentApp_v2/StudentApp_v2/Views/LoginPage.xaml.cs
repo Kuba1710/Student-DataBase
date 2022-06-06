@@ -20,26 +20,27 @@ namespace StudentApp_v2.Views
         }
         private async void LoginClicked(object sender, EventArgs e)
         {
-            User user = new User();
+            var user = new User(indexEntry.Text, passwordEntry.Text);
 
-            user.setEmail(emailEntry.Text);
-            user.setPassword(passwordEntry.Text);
-
-            bool isValid = credentialsCheck(user);
+            var isValid = credentialsCheck(user);
+            loginButton.BackgroundColor = Color.Red;
 
             if (isValid)
             {
-                
+                await Shell.Current.GoToAsync($"//{nameof(personalDataPage)}");
             }
             else
             {
-
+                messageLabel.Text = "Login failed";
+                passwordEntry.Text = String.Empty;
+                indexEntry.Text = String.Empty;
             }
 
-            bool credentialsCheck(User name)
-            {
-                return true;
-            }
+        }
+
+        bool credentialsCheck(User value)
+        {
+            return true;
         }
 
     }

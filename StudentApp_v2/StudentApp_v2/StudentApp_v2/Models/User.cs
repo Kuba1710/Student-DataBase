@@ -6,25 +6,22 @@ namespace StudentApp_v2.Models
 {
     public class User
     {
-        private string email;
-        private string password;
-
-        public string Email
+        public User(string index, string password)
         {
-            get { return email; }
-            set 
-            { 
-                email = value; 
-            }
+            Password = password;
+            Index = index;
         }
 
-       public void setPassword(string password)
+        public string Index
         {
-            password = password;
+            get;
+            set;
         }
-        public void setEmail(string email)
+        public string Password
         {
-            email = email;
+            get;
+            set;
         }
+
     }
 }
