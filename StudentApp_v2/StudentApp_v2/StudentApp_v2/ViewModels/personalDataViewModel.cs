@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace StudentApp_v2.ViewModels
 {
-    public class personalDataViewModel : ContentView
+    public class PersonalDataViewModel : ContentView
     {
-        public personalDataViewModel()
+        public PersonalDataViewModel()
         {
            
         }

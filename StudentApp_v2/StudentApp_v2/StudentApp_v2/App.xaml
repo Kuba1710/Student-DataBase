@@ -7,8 +7,8 @@
     -->
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#2196F3</Color>
-            <Style TargetType="Button">
+            <Color x:Key="Primary">#fff</Color>
+            <Style  TargetType="Button" >
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
@@ -27,6 +27,43 @@
                     </VisualStateGroupList>
                 </Setter>
             </Style>
+            
+ <!--STYLES-->
+            <Style x:Key="LoginFormButton" TargetType="Button">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="#000" />
+                <Setter Property="BorderRadius" Value="25" />
+                <Setter Property="BackgroundColor" Value="#FFF" />
+                <Setter Property="BorderColor" Value= "#000000"/>
+                <Setter Property = "BorderWidth" Value="2"/>
+                <Setter Property="TextTransform" Value="Uppercase"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="LoginLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="#000" />
+                <Setter Property="BackgroundColor" Value="#FFF" />
+                
+            </Style>
+            <Style x:Key="errorMessage" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="#f77c7c" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property = "CornerRadius" Value="25" />
+                <Setter Property = "HorizontalOptions" Value="Center" />
+                <Setter Property = "Margin" Value="0,25,0,0" />
+            </Style>
+            <Style x:Key="errorText" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="#000" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="loginEntry" TargetType="Entry">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="#000" />
+                <Setter Property="Visual" Value="Material" />
+                <Setter Property="PlaceholderColor" Value="#4f4a4a" />
+            </Style>
+ <!--STYLES END-->
         </ResourceDictionary>        
     </Application.Resources>
 </Application>

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "kTSYuN6DT/kPR/v+YgNtzV6srLOt/Ym2POil1kBylMaCo5icsIfPQNcA+Nn3TpdViwtbldLwy/wPTbLpH1Qjuw==",
+  "dgSpecHash": "AFQdUKOdeef8vmWHOwaPd+JCBvWp1QU+ei/AIuHEtE7v1BXjvgqwSt0X8kxN20ULFJi0nhCjRYGTQk2gWkTo8w==",
   "success": true,
   "projectFilePath": "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\amade\\.nuget\\packages\\com.airbnb.xamarin.forms.lottie\\4.1.0\\com.airbnb.xamarin.forms.lottie.4.1.0.nupkg.sha512",
     "C:\\Users\\amade\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\amade\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\amade\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",

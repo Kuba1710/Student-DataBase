@@ -10,14 +10,14 @@ using Xamarin.Forms.Xaml;
 namespace StudentApp_v2.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class enrollmentPage : ContentPage
+    public partial class EnrollmentPage : ContentPage
     {
-        public enrollmentPage()
+        public EnrollmentPage()
         {
             InitializeComponent();
         }
 
-        private void courseButton_Clicked(object sender, EventArgs e)
+        private void CourseButton_Clicked(object sender, EventArgs e)
         {
 
         }

@@ -8,10 +8,9 @@ using Xamarin.Forms;
 
 namespace StudentApp_v2.ViewModels
 {
-    public class LoginViewModel : INotifyPropertyChanged
+    public class LoginViewModel : BindableObject
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+       
 
-      
     }
 }

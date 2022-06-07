@@ -8,13 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("StudentApp_v2.Views.schedulePage.xaml", "Views/schedulePage.xaml", typeof(global::StudentApp_v2.Views.schedulePage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("StudentApp_v2.Views.schedulePage.xaml", "Views/schedulePage.xaml", typeof(global::StudentApp_v2.Views.SchedulePage))]
 
 namespace StudentApp_v2.Views {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\schedulePage.xaml")]
-    public partial class schedulePage : global::Xamarin.Forms.ContentPage {
+    public partial class SchedulePage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Label scheduleLabel;
@@ -23,10 +23,14 @@ namespace StudentApp_v2.Views {
         private global::Xamarin.Forms.Frame scheduleFrame;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.Grid subjectGrid;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(schedulePage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(SchedulePage));
             scheduleLabel = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "scheduleLabel");
             scheduleFrame = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Frame>(this, "scheduleFrame");
+            subjectGrid = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Grid>(this, "subjectGrid");
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿/*
-         * Add loading grid length and data to View for Shcedule and Personal Data
+         * Add auto grid length and data to View for Shcedule and Personal Data
+
          * Connection to DB
-         * Code clean-up
          * Design 
          * Login 
 */

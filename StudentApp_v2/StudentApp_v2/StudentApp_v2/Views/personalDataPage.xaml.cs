@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentApp_v2.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,12 @@ using Xamarin.Forms.Xaml;
 namespace StudentApp_v2.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class personalDataPage : ContentPage
+    public partial class PersonalDataPage : ContentPage
     {
-        public personalDataPage()
+        public PersonalDataPage()
         {
             InitializeComponent();
+            this.BindingContext = new PersonalDataViewModel();
         }
     }
 }

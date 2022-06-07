@@ -18,7 +18,7 @@ namespace StudentApp_v2.Models
         public string Specialization { get; set; }
         public string AvgGrade { get; set; }
 
-        public string[] getPersonalData()
+        public string[] GetPersonalData()
         {
             string[] data = {Index, Name, Surname, Address, Ects, Specialization, AvgGrade};
             return data;

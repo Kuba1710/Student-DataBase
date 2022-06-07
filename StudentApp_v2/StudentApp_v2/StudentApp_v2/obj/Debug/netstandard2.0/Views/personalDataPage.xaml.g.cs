@@ -8,13 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("StudentApp_v2.Views.personalDataPage.xaml", "Views/personalDataPage.xaml", typeof(global::StudentApp_v2.Views.personalDataPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("StudentApp_v2.Views.personalDataPage.xaml", "Views/personalDataPage.xaml", typeof(global::StudentApp_v2.Views.PersonalDataPage))]
 
 namespace StudentApp_v2.Views {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\personalDataPage.xaml")]
-    public partial class personalDataPage : global::Xamarin.Forms.ContentPage {
+    public partial class PersonalDataPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Label welcomeLabel;
@@ -66,7 +66,7 @@ namespace StudentApp_v2.Views {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(personalDataPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(PersonalDataPage));
             welcomeLabel = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "welcomeLabel");
             personalDataFrame = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Frame>(this, "personalDataFrame");
             nameLabel = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "nameLabel");

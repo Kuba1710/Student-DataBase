@@ -1,10 +1,6 @@
 ﻿using StudentApp_v2.Models;
 using StudentApp_v2.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,26 +18,28 @@ namespace StudentApp_v2.Views
         {
             var user = new User(indexEntry.Text, passwordEntry.Text);
 
-            var isValid = credentialsCheck(user);
-            loginButton.BackgroundColor = Color.Red;
+            var isValid = CredentialsCheck(user);
+
 
             if (isValid)
             {
-                await Shell.Current.GoToAsync($"//{nameof(personalDataPage)}");
+                await Shell.Current.GoToAsync($"//{nameof(PersonalDataPage)}");
             }
             else
             {
-                messageLabel.Text = "Login failed";
+                messageLabel.Text = "Incorrect index or password";
+                errorFrame.IsVisible = true;
+
                 passwordEntry.Text = String.Empty;
                 indexEntry.Text = String.Empty;
             }
 
         }
-
-        bool credentialsCheck(User value)
+        private bool CredentialsCheck(User value)
         {
-            return true;
+            if (value.Index == "255624" && value.Password == "Kaczka123") return true; else return false;
         }
+
 
     }
 }

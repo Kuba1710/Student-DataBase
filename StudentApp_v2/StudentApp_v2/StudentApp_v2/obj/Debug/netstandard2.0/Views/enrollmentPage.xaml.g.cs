@@ -8,13 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("StudentApp_v2.Views.enrollmentPage.xaml", "Views/enrollmentPage.xaml", typeof(global::StudentApp_v2.Views.enrollmentPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("StudentApp_v2.Views.enrollmentPage.xaml", "Views/enrollmentPage.xaml", typeof(global::StudentApp_v2.Views.EnrollmentPage))]
 
 namespace StudentApp_v2.Views {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\enrollmentPage.xaml")]
-    public partial class enrollmentPage : global::Xamarin.Forms.ContentPage {
+    public partial class EnrollmentPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Label courseLabel;
@@ -30,7 +30,7 @@ namespace StudentApp_v2.Views {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(enrollmentPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(EnrollmentPage));
             courseLabel = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "courseLabel");
             courseEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "courseEntry");
             courseButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "courseButton");

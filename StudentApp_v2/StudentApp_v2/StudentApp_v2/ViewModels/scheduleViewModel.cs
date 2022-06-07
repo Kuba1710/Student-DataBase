@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace StudentApp_v2.ViewModels
 {
-    public class scheduleViewModel : ContentView
+    public class ScheduleViewModel : ContentView
     {
-        public scheduleViewModel()
+        public ScheduleViewModel()
         {
            
         }

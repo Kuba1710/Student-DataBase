@@ -7,11 +7,6 @@
        Shell.FlyoutBehavior="Disabled" 
        >
 
-    <!--
-        The overall app visual hierarchy is defined here, along with navigation.
-    
-        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
-    -->
 
     <Shell.Resources>
         <ResourceDictionary>
@@ -21,27 +16,30 @@
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+<!--Tabbar properties-->
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#bf3636" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="#000"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#FFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="#000"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
-
+    
+<!--Routing-->
     <ShellItem Route="LoginPage" FlyoutItemIsVisible ="False">
         <ShellContent  ContentTemplate="{DataTemplate local:LoginPage}" />
     </ShellItem>
+<!--TABBAR-->
     <TabBar>
         <Tab Title="Personal Data" Icon="">
-            <ShellContent ContentTemplate="{DataTemplate local:personalDataPage}" Route="personalDataPage" />
+            <ShellContent ContentTemplate="{DataTemplate local:PersonalDataPage}" Route="PersonalDataPage" />
         </Tab>
         <Tab Title="Schedule" Icon="">
-            <ShellContent ContentTemplate="{DataTemplate local:schedulePage}" Route="schedulePage" />
+            <ShellContent ContentTemplate="{DataTemplate local:SchedulePage}" Route="SchedulePage" />
         </Tab>
         <Tab Title="Enrollment" Icon="">
-            <ShellContent ContentTemplate="{DataTemplate local:enrollmentPage}" Route="enrollmentPage" />
+            <ShellContent ContentTemplate="{DataTemplate local:EnrollmentPage}" Route="EnrollmentPage" />
         </Tab>
     </TabBar>
 
