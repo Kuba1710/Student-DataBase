@@ -14,7 +14,6 @@ struct Student
 	std::string degreeOfStudy;
 	std::string ects;
 	std::string yearOfStudy;
-	//std::vector<std::map<std::string, unsigned int>> classes; // vector zajec ktory przyjmuje mape key = nazwa zajeci, value =  liczba ects
 	std::string gpa;
 };
 

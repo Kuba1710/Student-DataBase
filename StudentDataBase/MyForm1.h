@@ -4,6 +4,7 @@
 #include "DataBase.hpp"
 #include "FieldOfStudy.hpp"
 #include "Modify.hpp"
+#include "ECcourses.hpp"
 #include <msclr\marshal_cppstd.h>
 #include <map>
 //a
@@ -514,9 +515,9 @@ namespace StudentDataBase {
 			System::String^ fieldOfStudyTBtemp = this->FieldOfStudyTB->Text;
 			System::String^ specializationTBtemp = this->specializationTB->Text;
 			System::String^ degreeTBtemp = this->degreeTB->Text;
-			System::String^ ectsTBtemp = this->ectsTB->Text;
+			//System::String^ ectsTBtemp = this->ectsTB->Text;
 			System::String^ yearOfStudyTBtemp = this->yearOfStudyTB->Text;
-			System::String^ gpaTBtemp = this->gpaTB->Text;
+			//System::String^ gpaTBtemp = this->gpaTB->Text;
 
 			student->name = context.marshal_as<std::string>(firstNameTBtemp);
 			student->secondName = context.marshal_as<std::string>(secondNameTBtemp);
@@ -525,23 +526,10 @@ namespace StudentDataBase {
 			student->fieldOfStudy = context.marshal_as<std::string>(fieldOfStudyTBtemp);
 			student->specialization = context.marshal_as<std::string>(specializationTBtemp);
 			student->degreeOfStudy = context.marshal_as<std::string>(degreeTBtemp);
-			student->ects = context.marshal_as<std::string>(ectsTBtemp);
+			//student->ects = context.marshal_as<std::string>(ectsTBtemp);
 			student->yearOfStudy = context.marshal_as<std::string>(yearOfStudyTBtemp);
-			student->gpa = context.marshal_as<std::string>(gpaTBtemp);
+			//student->gpa = context.marshal_as<std::string>(gpaTBtemp);
 
-			/*std::map<std::string, System::String^> datas;
-			datas["firstName"] = this->FirstNameTB->Text;
-			datas["secondName"] = this->SecondNameTB->Text;
-			datas["index"] = this->IndexTB->Text;
-			datas["pesel"] = this->peselTB->Text;
-			datas["fieldOfStudy"] = this->FieldOfStudyTB->Text;
-			datas["specialization"] = this->specializationTB->Text;;
-			datas["degree"] = this->degreeTB->Text;
-			datas["ects"] = this->ectsTB->Text;
-			datas["yearOfStudy"] = this->yearOfStudyTB->Text;
-			datas["gpa"] = this->gpaTB->Text;
-
-			return datas;*/
 		};
 
 
@@ -594,6 +582,8 @@ namespace StudentDataBase {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->collectData();
+		ECcourses^ ec = gcnew ECcourses(student);
+		ec->ShowDialog();
 		//std::map<std::string, System::String^>* datas2 = &datas;
 		students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
 
