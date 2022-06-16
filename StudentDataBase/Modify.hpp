@@ -1,6 +1,7 @@
 #pragma once
 #include <mysql.h>
 #include "Student.hpp"
+#include <list>
 
 using namespace MySql::Data::MySqlClient;
 using namespace System::Data;
@@ -20,6 +21,21 @@ namespace modify
 
 	};
 
+	enum class studentData
+	{
+		firstName,
+		secondName,
+		index,
+		pesel,
+		fieldOfStudy,
+		specialization,
+		degree,
+		ects,
+		yearOfStudy,
+		gpa
+
+	};
+
 	class Modify
 	{
 	public:
@@ -29,6 +45,7 @@ namespace modify
 		void updateStudent(MySqlCommand^ sqlCmd, const Student* student);
 		void searchStudent(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataAdapter^ sqlAd, const Student* student, DataGridView^ dataGrid, TextBox^ search, MySqlConnection^ conn);
 		void groupStudent(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataAdapter^ sqlAd, const Student* student, DataGridView^ dataGrid, TextBox^ search, MySqlConnection^ conn, ComboBox^ combo);
+		//System::String^ stdToSysytem(const Student&, int);
 		//void castingStudent(System::String^ str, const Student* student);
 
 	/*private:
