@@ -5,6 +5,7 @@
 #include "FieldOfStudy.hpp"
 #include "Modify.hpp"
 #include "ECcourses.hpp"
+#include "IEFcourses.h"
 #include <msclr\marshal_cppstd.h>
 #include <map>
 //a
@@ -583,7 +584,11 @@ namespace StudentDataBase {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->collectData();
 		ECcourses^ ec = gcnew ECcourses(student);
-		ec->ShowDialog();
+		IEFcourses^ ief = gcnew IEFcourses(student);
+		if (student->specialization == "EC")
+			ec->ShowDialog();
+		else if (student->specialization == "IEF")
+			ief->ShowDialog();
 		//std::map<std::string, System::String^>* datas2 = &datas;
 		students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
 
