@@ -2,18 +2,18 @@
 {
     public class User
     {
-        public User(string index, string password)
+        public User(int index, string pesel)
         {
-            Password = password;
+            Pesel = pesel;
             Index = index;
         }
 
-        public string Index
+        public int Index
         {
             get;
             set;
         }
-        public string Password
+        public string Pesel
         {
             get;
             set;

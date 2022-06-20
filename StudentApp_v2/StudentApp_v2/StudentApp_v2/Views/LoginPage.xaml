@@ -1,24 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:StudentApp_v2.ViewModels"
              x:Class="StudentApp_v2.Views.LoginPage"
+             x:DataType="viewmodels:LoginViewModel"
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False"
+             
              >
-
+    <ContentPage.BindingContext>
+        <viewmodels:LoginViewModel />
+    </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <Frame>
 
             <StackLayout Padding="40" VerticalOptions="Center">
                 <Label Text="Index:" Style="{StaticResource LoginLabel}"/>
-                <Entry x:Name ="indexEntry"  Style="{StaticResource loginEntry}" Placeholder="Your Index..." />
+                <Entry x:Name ="indexEntry"  Style="{StaticResource loginEntry}" Text="{Binding Index}" Placeholder="Your Index..." Keyboard="Numeric" />
                 <Label Text="Password: "  Style="{StaticResource LoginLabel}" />
-                <Entry x:Name ="passwordEntry"  IsPassword="True" Style="{StaticResource loginEntry}" Placeholder="Your Password..." />
-                <Button x:Name="loginButton" Text="Log in" Clicked="LoginClicked" Style="{StaticResource LoginFormButton}"  />
-<!--Login Error message-->
-                <Frame x:Name="errorFrame" IsVisible="False" Style="{StaticResource errorMessage}" >
-                    <Label x:Name="messageLabel" Style="{StaticResource errorText}" />
+                <Entry x:Name ="passwordEntry"  IsPassword="True" Style="{StaticResource loginEntry}" Text="{Binding Pesel}" Placeholder="Your Password..." />
+                <Button x:Name="loginButton" Text="Log in" Clicked="LoginClicked"  Style="{StaticResource LoginFormButton}" Command="{Binding LoginClicked}" />
+
+                <Frame x:Name="errorFrame" IsVisible="False" Style="{StaticResource errorMessage}"  >
+                    <Label x:Name="messageLabel" Style="{StaticResource errorText}" Text="{Binding ErrorMessage}"/>
                 </Frame>
+                
             </StackLayout>
         </Frame>
     </ContentPage.Content>

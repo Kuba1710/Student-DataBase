@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\StudentApp_v2",
+    "\\StudentApp_v2\\StudentApp_v2",
+    "\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2",
+    "\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\Views",
+    "\\StudentDataBase"
   ],
-  "SelectedNode": "\\StudentApp_v2.sln",
+  "SelectedNode": "\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\Views\\LoginPage.xaml",
   "PreviewInSolutionExplorer": false
 }

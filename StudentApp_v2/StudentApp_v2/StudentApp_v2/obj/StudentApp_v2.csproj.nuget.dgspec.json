@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj": {}
+    "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj": {
+    "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj",
+        "projectUniqueName": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj",
         "projectName": "StudentApp_v2",
-        "projectPath": "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj",
+        "projectPath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj",
         "packagesPath": "C:\\Users\\amade\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\obj\\",
+        "outputPath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -48,11 +48,23 @@
               "target": "Package",
               "version": "[4.1.0, )"
             },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.29, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.1.10, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "System.Memory": {
+              "target": "Package",
+              "version": "[4.5.5, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",

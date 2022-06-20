@@ -1,4 +1,5 @@
 ﻿using StudentApp_v2.Models;
+using StudentApp_v2.Services;
 using StudentApp_v2.ViewModels;
 using System;
 using Xamarin.Forms;
@@ -16,30 +17,25 @@ namespace StudentApp_v2.Views
         }
         private async void LoginClicked(object sender, EventArgs e)
         {
-            var user = new User(indexEntry.Text, passwordEntry.Text);
+            errorFrame.IsVisible = true;
+            passwordEntry.Text = String.Empty;
+            indexEntry.Text = String.Empty;
 
-            var isValid = CredentialsCheck(user);
-
-
-            if (isValid)
+            //Button animation
+            if(messageLabel.Text == "")
             {
-                await Shell.Current.GoToAsync($"//{nameof(PersonalDataPage)}");
+                loginButton.BackgroundColor = Color.LightGreen;
             }
             else
             {
-                messageLabel.Text = "Incorrect index or password";
-                errorFrame.IsVisible = true;
-
-                passwordEntry.Text = String.Empty;
-                indexEntry.Text = String.Empty;
+                loginButton.BackgroundColor = Color.Red;
             }
+            await loginButton.TranslateTo(-20,0,100);
+            await loginButton.TranslateTo(40, 0, 100);
+            await loginButton.TranslateTo(-20, 0, 100);
 
+            loginButton.BackgroundColor = Color.FromHex("#FFF");
         }
-        private bool CredentialsCheck(User value)
-        {
-            if (value.Index == "255624" && value.Password == "Kaczka123") return true; else return false;
-        }
-
 
     }
 }
