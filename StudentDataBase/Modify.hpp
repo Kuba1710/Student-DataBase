@@ -39,7 +39,6 @@ namespace modify
 	class Modify
 	{
 	public:
-
 		void add(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, const Student* student);
 		void deleteStudent(MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataReader^ sqlRd, const Student* student);
 		void updateStudent(MySqlCommand^ sqlCmd, const Student* student);

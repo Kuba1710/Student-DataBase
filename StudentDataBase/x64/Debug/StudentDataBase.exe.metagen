@@ -1,3 +1,4 @@
+  StudentDataBase.login.resources - Embedded, ContainedInManifestFile, 
   StudentDataBase.MyForm1.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly StudentDataBase, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
@@ -16,6 +17,18 @@ Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Assembly Microsoft.VisualC.STLCLR, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Class StudentDataBase.ECcourses: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Student*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    collectMarks(vector<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> >\,std::allocator<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> > > >*): PrivateScope, Public, HideBySig
+Class StudentDataBase.IEFcourses: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Student*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    collectMarks(vector<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> >\,std::allocator<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> > > >*): PrivateScope, Public, HideBySig
 Class StudentDataBase.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -24,3 +37,6 @@ Class StudentDataBase.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     getFirstname(): PrivateScope, Public, HideBySig
     clearTextBoxes(): PrivateScope, Public, HideBySig
     showRow(): PrivateScope, Public, HideBySig
+Class StudentDataBase.login: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

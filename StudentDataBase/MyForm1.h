@@ -8,6 +8,7 @@
 #include "IEFcourses.h"
 #include <msclr\marshal_cppstd.h>
 #include <map>
+
 //a
 namespace StudentDataBase {
 
@@ -575,7 +576,7 @@ namespace StudentDataBase {
 		}
 					
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		
+
 		students->connectToDataBase(sqlConn, sqlCmd, sqlDt, sqlDta, sqlRd);
 		mainField->viewStudents(sqlCmd, sqlDt, sqlRd);
 		students->disconnectDataBase(sqlRd, sqlConn);

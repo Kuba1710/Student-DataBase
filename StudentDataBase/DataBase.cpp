@@ -1,5 +1,10 @@
 #include "DataBase.hpp"
 #include <mysql.h>
+//zmiany
+//#include "mysql_connection.h"
+//#include <cppconn/driver.h>
+//#include <cppconn/exception.h>
+//#include <cppconn/prepared_statement.h>
 using namespace System::Windows::Forms;
 
 DataBase::DataBase() {
@@ -23,8 +28,23 @@ void DataBase::disconnectDataBase(MySqlDataReader^ sqlRd, MySqlConnection^ sqlCo
 }
 
 void DataBase::connectToDataBase(MySqlConnection^ sqlConn, MySqlCommand^ sqlCmd, DataTable^ sqlDt, MySqlDataAdapter^ sqlDta, MySqlDataReader^ sqlRd)
-{
-	sqlConn->ConnectionString = "datasource = localhost; port = 3306; username = root; password = Kuba1710; database = db_students";
+{ 
+	//zmiany
+	/*sql::Driver* driver;
+	sql::Connection* con;
+	sql::Statement* stmt;
+	sql::PreparedStatement* pstmt;
+
+	const std::string server = "mysqlserver-to-po.database.windows.net";
+	const std::string username = "azureuser";
+	const std::string password = "mypass253882PO";
+
+	driver = get_driver_instance();
+	con = driver->connect(server, username, password);*/
+
+	//sqlConn->ConnectionString = "Data Source=mysqlserver-to-po.database.windows.net;Initial Catalog=db_students;User ID=azureuser;Password=mypass253882PO";
+	sqlConn->ConnectionString = "datasource = localhost; port = 3306; username = root; password = mypass; database = db_students"; //Persist Security Info=False;
+	
 	sqlConn->Open();
 	sqlCmd->Connection = sqlConn;
 }

@@ -121,8 +121,14 @@
   <ItemGroup>
     <ClInclude Include="DataBase.hpp" />
     <ClInclude Include="Ec.hpp" />
+    <ClInclude Include="ECcourses.hpp" />
     <ClInclude Include="FieldOfStudy.hpp" />
     <ClInclude Include="Ief.hpp" />
+    <ClInclude Include="IEFcourses.h" />
+    <ClInclude Include="login.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="LoginDataBase.h" />
     <ClInclude Include="Modify.hpp" />
     <ClInclude Include="MyForm1.h">
       <FileType>CppForm</FileType>
@@ -132,8 +138,12 @@
   <ItemGroup>
     <ClCompile Include="DataBase.cpp" />
     <ClCompile Include="Ec.cpp" />
+    <ClCompile Include="ECcourses.cpp" />
     <ClCompile Include="FieldOfStudy.cpp" />
     <ClCompile Include="Ief.cpp" />
+    <ClCompile Include="IEFcourses.cpp" />
+    <ClCompile Include="login.cpp" />
+    <ClCompile Include="LoginDataBase.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Modify.cpp" />
     <ClCompile Include="MyForm1.cpp" />
@@ -149,6 +159,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm1.resx">
       <DependentUpon>MyForm1.h</DependentUpon>
       <SubType>Designer</SubType>
