@@ -4,26 +4,19 @@ using System.Text;
 
 namespace StudentApp_v2.Models
 {
-    public class Studnet : User
+    public class Student
     {
-        public string Id { get; set; }
+
+        public int Index { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string Adress { get; set; }
-        public string Index { get; set; }
+        public string Pesel { get; set; }
         public string Ects { get; set; }
         public string Specialization { get; set; }
-        public string AvgGrade { get; set; }
+        public string FieldOfStudy { get; set; }
+        public string Degree { get; set; }
+        public string YearOfStudy { get; set; }
+        public string Gpa { get; set; }
 
-        public string[] getPersonalData()
-        {
-            string[] data = new string[9];
-            return data;
-         
-        }
-        private double calcAvgGrade()
-        {
-            return 2.56f;
-        }
     }
 }

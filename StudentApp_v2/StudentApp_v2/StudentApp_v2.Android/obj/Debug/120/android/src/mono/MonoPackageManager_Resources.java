@@ -4,6 +4,9 @@ public class MonoPackageManager_Resources {
 		/* We need to ensure that "StudentApp_v2.Android.dll" comes first in this list. */
 		"StudentApp_v2.Android.dll",
 		"FormsViewGroup.dll",
+		"Lottie.Android.dll",
+		"Lottie.Forms.dll",
+		"Square.OkIO.dll",
 		"StudentApp_v2.dll",
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.Annotation.dll",
@@ -64,6 +67,10 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Forms.Xaml.dll",
 		"Xamarin.Google.Android.Material.dll",
 		"Xamarin.Google.Guava.ListenableFuture.dll",
+		"xunit.abstractions.dll",
+		"xunit.assert.dll",
+		"xunit.core.dll",
+		"xunit.execution.dotnet.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

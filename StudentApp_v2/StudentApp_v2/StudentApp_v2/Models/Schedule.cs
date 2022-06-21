@@ -7,11 +7,8 @@ namespace StudentApp_v2.Models
 {
     public class Schedule
     {
-        private string id;
-        private string[] courses;
-        public Schedule(Studnet studnet)
-        {
-            studnet.Id = id;
-        }
+        public string Id { get; set; }
+        public string[] Courses { get; set; }
+
     }
 }

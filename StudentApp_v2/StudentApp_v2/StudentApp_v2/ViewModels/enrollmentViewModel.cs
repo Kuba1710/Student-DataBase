@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace StudentApp_v2.ViewModels
 {
-    public class enrollmentViewModel : ContentView
+    public class EnrollmentViewModel : ContentView
     {
-        public enrollmentViewModel()
+        public EnrollmentViewModel()
         {
             Content = new StackLayout
             {

@@ -7,8 +7,12 @@
     -->
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#2196F3</Color>
-            <Style TargetType="Button">
+            <Color x:Key="Primary">#fff</Color>
+            <Color x:Key="ErrorColor">#f77c7c</Color>
+            <Color x:Key="PositiveColor">#53ed7c</Color>
+            <Color x:Key="PlaceHolderColor">#4f4a4a</Color>
+            <Color x:Key="TextColor">#000</Color>
+            <Style  TargetType="Button" >
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
@@ -27,6 +31,51 @@
                     </VisualStateGroupList>
                 </Setter>
             </Style>
+            
+ <!--STYLES-->
+            <Style x:Key="LoginFormButton" TargetType="Button">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="{x:StaticResource TextColor}" />
+                <Setter Property="BorderRadius" Value="25" />
+                <Setter Property="BackgroundColor" Value="{x:StaticResource Primary}" />
+                <Setter Property="BorderColor" Value= "#000000"/>
+                <Setter Property = "BorderWidth" Value="2"/>
+                <Setter Property="TextTransform" Value="Uppercase"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="LoginLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="#000" />
+               
+                
+            </Style>
+            <Style x:Key="errorMessage" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{x:StaticResource ErrorColor}" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property = "CornerRadius" Value="25" />
+                <Setter Property = "HorizontalOptions" Value="Center" />
+                <Setter Property = "Margin" Value="0,25,0,0" />
+            </Style>
+            <Style x:Key="errorText" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="{x:StaticResource TextColor}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                
+                
+            </Style>
+            <Style x:Key="loginEntry" TargetType="Entry">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="{x:StaticResource TextColor}" />
+                <Setter Property="Visual" Value="Material" />
+                <Setter Property="PlaceholderColor" Value="{x:StaticResource PlaceHolderColor}" />
+            </Style>
+            <Style x:Key="FormFrame" TargetType="StackLayout">
+                <Setter Property="Padding" Value="10,10,10,10" />
+                <Setter Property="BackgroundColor" Value="#c9c9c9" />
+                
+            </Style>
+            <!--STYLES END-->
         </ResourceDictionary>        
     </Application.Resources>
 </Application>

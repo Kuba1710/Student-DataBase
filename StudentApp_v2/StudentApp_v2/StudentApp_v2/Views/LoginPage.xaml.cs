@@ -1,10 +1,7 @@
 ﻿using StudentApp_v2.Models;
+using StudentApp_v2.Services;
 using StudentApp_v2.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -20,26 +17,34 @@ namespace StudentApp_v2.Views
         }
         private async void LoginClicked(object sender, EventArgs e)
         {
-            User user = new User();
-
-            user.setEmail(emailEntry.Text);
-            user.setPassword(passwordEntry.Text);
-
-            bool isValid = credentialsCheck(user);
-
-            if (isValid)
+            messageFrame.IsVisible = true;
+            passwordEntry.Text = String.Empty;
+            indexEntry.Text = String.Empty;
+            //Button animation
+            if (messageLabel.Text == "Success")
             {
-                
+                loginButton.BackgroundColor = Color.FromHex("#53ed7c");
+                loginButton.TextColor = Color.FromHex("#000");
+                loginButton.BorderColor = Color.FromHex("#53ed7c");
+                await loginButton.TranslateTo(0, -5, 200);
+                await loginButton.TranslateTo(0, 10, 200);
+                await loginButton.TranslateTo(0, 0, 200);
             }
             else
             {
+                loginButton.BackgroundColor = Color.FromHex("#f77c7c");
+                loginButton.TextColor = Color.FromHex("#FFF");
+                loginButton.BorderColor = Color.FromHex("#f77c7c");
+                await loginButton.TranslateTo(-5, 0, 200);
+                await loginButton.TranslateTo(10, 0, 200);
+                await loginButton.TranslateTo(0, 0, 200);
 
             }
 
-            bool credentialsCheck(User name)
-            {
-                return true;
-            }
+
+            loginButton.BackgroundColor = Color.FromHex("#FFF");
+            loginButton.TextColor = Color.FromHex("#000");
+            loginButton.BorderColor = Color.FromHex("#000");
         }
 
     }

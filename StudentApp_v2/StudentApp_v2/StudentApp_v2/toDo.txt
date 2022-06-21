@@ -1,0 +1,7 @@
+﻿/*
+         * Add auto grid length and data to View for Shcedule and Personal Data
+
+         * Connection to DB
+         * Design 
+         * Login 
+*/

@@ -1,30 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace StudentApp_v2.Models
+﻿namespace StudentApp_v2.Models
 {
     public class User
     {
-        private string email;
-        private string password;
-
-        public string Email
+        public User(int index, string pesel)
         {
-            get { return email; }
-            set 
-            { 
-                email = value; 
-            }
+            Pesel = pesel;
+            Index = index;
         }
 
-       public void setPassword(string password)
+        public int Index
         {
-            password = password;
+            get;
+            set;
         }
-        public void setEmail(string email)
+        public string Pesel
         {
-            email = email;
+            get;
+            set;
         }
+
     }
 }

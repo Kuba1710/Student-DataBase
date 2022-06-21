@@ -6,13 +6,15 @@ using StudentApp_v2.Models;
 namespace StudentApp_v2.Models
 {
     public class Enrollment
-    {
-        private string id;
-        private string index;
-        public Enrollment(Studnet studnet)
+    {/*
+        public Enrollment(Student studnet)
         {
-            id = studnet.Id;
-            index = studnet.Index;
+            Id = studnet.Id;
+            Index = studnet.Index;
         }
+        */
+        public string Id { get; set; }
+        public string Index { get; set; }
+
     }
 }

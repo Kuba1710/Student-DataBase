@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentApp_v2.Android", "St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentApp_v2.iOS", "StudentApp_v2\StudentApp_v2.iOS\StudentApp_v2.iOS.csproj", "{45243215-8ED6-4883-9B49-C4579F53BCEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentApp_v2", "StudentApp_v2\StudentApp_v2\StudentApp_v2.csproj", "{0CF6495E-DF5B-4431-AF1D-81A6DE377E1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentApp_v2", "StudentApp_v2\StudentApp_v2\StudentApp_v2.csproj", "{0CF6495E-DF5B-4431-AF1D-81A6DE377E1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{4C38F1AF-AE27-495D-8241-ADD55AB92EF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

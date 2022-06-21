@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.Android\\StudentApp_v2.Android.csproj": {}
+    "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.Android\\StudentApp_v2.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.Android\\StudentApp_v2.Android.csproj": {
+    "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.Android\\StudentApp_v2.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.Android\\StudentApp_v2.Android.csproj",
+        "projectUniqueName": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.Android\\StudentApp_v2.Android.csproj",
         "projectName": "StudentApp_v2.Android",
-        "projectPath": "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.Android\\StudentApp_v2.Android.csproj",
+        "projectPath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.Android\\StudentApp_v2.Android.csproj",
         "packagesPath": "C:\\Users\\amade\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.Android\\obj\\",
+        "outputPath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid12.0": {
             "projectReferences": {
-              "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj": {
-                "projectPath": "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj"
+              "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj": {
+                "projectPath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj"
               }
             }
           }
@@ -42,26 +42,38 @@
       "frameworks": {
         "monoandroid12.0": {
           "dependencies": {
+            "Com.Airbnb.Android.Lottie": {
+              "target": "Package",
+              "version": "[4.2.2, )"
+            },
+            "Com.Airbnb.Xamarin.Forms.Lottie": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "System.Memory": {
+              "target": "Package",
+              "version": "[4.5.5, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.7.0, )"
+              "version": "[1.7.3, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[5.0.0.2196, )"
+              "version": "[5.0.0.2478, )"
             }
           }
         }
       }
     },
-    "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj": {
+    "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj",
+        "projectUniqueName": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj",
         "projectName": "StudentApp_v2",
-        "projectPath": "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj",
+        "projectPath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj",
         "packagesPath": "C:\\Users\\amade\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amade\\source\\repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\obj\\",
+        "outputPath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -94,19 +106,35 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "Com.Airbnb.Xamarin.Forms.Lottie": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            },
+            "System.Memory": {
+              "target": "Package",
+              "version": "[4.5.5, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.7.0, )"
+              "version": "[1.7.3, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[5.0.0.2196, )"
+              "version": "[5.0.0.2478, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
             }
           },
           "imports": [
