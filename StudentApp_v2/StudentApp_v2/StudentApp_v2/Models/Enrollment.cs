@@ -1,15 +1,18 @@
 ﻿namespace StudentApp_v2.Models
 {
     public class Enrollment
-    {/*
-        public Enrollment(Student studnet)
+    {
+        public Enrollment(Student studnet, string courseName, string action)
         {
-            Id = studnet.Id;
             Index = studnet.Index;
+            CourseName = courseName;
+            Action = action;
+            Specialization = studnet.Specialization;
         }
-        */
-        public string Id { get; set; }
-        public string Index { get; set; }
 
+        public string CourseName { get; set; }
+        public int Index { get; set; }
+        public string Action { get; set; }
+        public string Specialization { get; set; }
     }
 }

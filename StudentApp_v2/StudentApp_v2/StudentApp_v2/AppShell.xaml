@@ -18,10 +18,10 @@
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
 <!--Tabbar properties-->
-                <Setter Property="Shell.TabBarBackgroundColor" Value="#90fcfa" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{x:StaticResource MenuBackground}" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="Red"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="{x:StaticResource PlaceHolderColor}"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="#000"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="#002E3D"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>

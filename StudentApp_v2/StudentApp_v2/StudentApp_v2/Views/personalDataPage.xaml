@@ -14,7 +14,7 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Frame x:Name="welcomeFrame" HasShadow="False" Margin="30"> 
+            <Frame x:Name="welcomeFrame" HasShadow="True" Style="{x:StaticResource headerFrame}"> 
             <Label
                 x:Name="welcomeLabel"
                 Text="{Binding Student.Name, StringFormat=' Dane studenta, {0}  '}"
@@ -26,9 +26,9 @@
                 x:Name="gridFrame"
                 BackgroundColor="{x:StaticResource MainBckground}"
                 CornerRadius="25"
-                Margin="10"
+                Margin="30"
                 >
-                <Grid VerticalOptions="CenterAndExpand" Margin="10" Padding="1" RowSpacing="1" ColumnSpacing="1" 
+                <Grid VerticalOptions="Center" Padding="1" RowSpacing="1" ColumnSpacing="1" 
                       RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" BackgroundColor="Black"> 
                     
                     <Grid.ColumnDefinitions>

@@ -99,5 +99,90 @@ namespace StudentApp_v2.Services
 
             return result[0];
         }
+        /// <summary>
+        /// Method used to to handle enrollment best in enrollment class
+        /// </summary>
+        /// <param name="enrollment"></param>
+        /// <returns></returns>
+        public static string enrollmentActions(Enrollment enrollment)
+        {
+            connection.Open();
+
+            string result = "";
+            string query;
+            //Check if in db
+            query = String.Format(
+                    "SELECT {0} " +
+                    "FROM {1} " +
+                    "WHERE indeks={2}",
+                     enrollment.CourseName,
+                     enrollment.Specialization,
+                     enrollment.Index
+                    );
+
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                result = (string)reader[String.Format("{0}",enrollment.CourseName)];
+            }
+
+            //If doesn't exists in db
+            if (result is null)
+            {
+                return "Subject doesn't exists in database";
+            }
+                
+
+            if(enrollment.Action == "Enroll")
+            {
+                if(result == "0")
+                {
+                    query = String.Format(
+                                "UPDATE {1} " +
+                                "SET {0} = 1 " +
+                                "WHERE indeks={2}",
+                                 enrollment.CourseName,
+                                 enrollment.Specialization,
+                                 enrollment.Index
+                                );
+                    command = new SqlCommand(query, connection);
+                    reader.Close();
+                    command.ExecuteNonQuery();
+                    result = "Enrollment Succesfull";
+                }
+                else
+                {
+                    result = "Already enrolled";
+                }
+            }
+            else if(enrollment.Action == "Disenroll")
+            {
+                if(result != "0")
+                {
+                    query = String.Format(
+                                "UPDATE {1} " +
+                                "SET {0} = 0 " +
+                                "WHERE indeks={2}",
+                                 enrollment.CourseName,
+                                 enrollment.Specialization,
+                                 enrollment.Index
+                                );
+                    command = new SqlCommand(query, connection);
+                    reader.Close();
+                    command.ExecuteNonQuery();
+                    result = "Disenrollment Succesfull";
+                }
+                else
+                {
+                    result = "Already disenrolled";
+                }
+            }
+
+            connection.Close();
+            reader.Close();
+            return result;
+        }
     }
 }

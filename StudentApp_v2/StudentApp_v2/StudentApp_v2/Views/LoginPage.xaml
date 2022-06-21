@@ -25,8 +25,8 @@
                         <Button x:Name="loginButton" Text="Log in" Clicked="LoginClicked"  Style="{StaticResource LoginFormButton}" Command="{Binding LoginClicked}" />
                     </StackLayout>
                 </Frame>
-                <Frame x:Name="messageFrame" Style="{x:StaticResource errorMessage}" IsVisible="False" >
-                    <Label x:Name="messageLabel" Style="{StaticResource errorText}" Text="{Binding Message, StringFormat=' {0} '}"  />
+                <Frame x:Name="messageFrame" Style="{x:StaticResource feedbackMessage}" IsVisible="False" >
+                    <Label x:Name="messageLabel" Style="{StaticResource feedbackText}" Text="{Binding Message, StringFormat=' {0} '}"  />
                 </Frame>
             </StackLayout>
         </Frame>

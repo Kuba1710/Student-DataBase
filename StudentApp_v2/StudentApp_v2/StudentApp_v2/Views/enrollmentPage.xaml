@@ -1,19 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:StudentApp_v2.ViewModels"
              x:Class="StudentApp_v2.Views.EnrollmentPage"
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False"
              >
+    <ContentPage.BindingContext>
+        <viewmodels:EnrollmentViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Here you can sign up for all the courses"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label Text="Course Code:" x:Name="courseLabel" />
-            <Entry x:Name ="courseEntry" Placeholder="Course Code" />
-            <Button x:Name="courseButton" Text="Confirm" Clicked="CourseButton_Clicked" />
-            <Label x:Name="feedbackMessage" Text="" />
+        <StackLayout Padding="40" VerticalOptions="Center">
+            <Frame Style="{x:StaticResource headerFrame}" HasShadow="True" >
+                <Label Text="Here you can enroll for or disenroll from all the courses"
+                    Style="{x:StaticResource headerLabel}"/>
+            </Frame>
+            <Frame CornerRadius="25" Padding="0" HasShadow="True">
+                <StackLayout x:Name="FormFrame" Style="{x:StaticResource EnrollFrame}" >
+                    <Label Text="Course Name:" x:Name="courseLabel" Style="{StaticResource LoginLabel}"/>
+                    <Picker x:Name="CoursePicker" Title="Select a course" SelectedItem="{Binding PickedCourse}" />
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto">
+                        <Button x:Name="EnrollButton" Text="Enroll" Grid.Row="0" Grid.Column="0"  Clicked="EnrollClicked" Command="{Binding EnrollClicked}" Style="{StaticResource LoginFormButton}"/>
+                        <Button x:Name="DisenrollButton" Text ="Disenroll" Grid.Row="0" Grid.Column= "1"  Clicked="DisenrollClicked" Command="{Binding DisenrollClicked}" Style="{StaticResource LoginFormButton}"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+            <Frame Style="{x:StaticResource feedbackMessage}" IsVisible="False" x:Name="feedbackMessage">
+                <Label x:Name="feedbackText" Text="{Binding Message, StringFormat=' {0} '}" Style="{x:StaticResource feedbackText}"/>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

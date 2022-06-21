@@ -2,6 +2,7 @@
 using StudentApp_v2.Services;
 using StudentApp_v2.Views;
 using System.ComponentModel;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace StudentApp_v2.ViewModels
@@ -47,7 +48,12 @@ namespace StudentApp_v2.ViewModels
 
         private async void OnLoginClicked()
         {
-
+            var connectivity = Connectivity.NetworkAccess;
+            if (connectivity != NetworkAccess.Internet)
+            {
+                Message = "No internet connection";
+                return;
+            }
             if (index is null || pesel is null)
             {
                 Message = "Please fill out the form";
