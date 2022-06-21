@@ -17,24 +17,34 @@ namespace StudentApp_v2.Views
         }
         private async void LoginClicked(object sender, EventArgs e)
         {
-            errorFrame.IsVisible = true;
+            messageFrame.IsVisible = true;
             passwordEntry.Text = String.Empty;
             indexEntry.Text = String.Empty;
-
             //Button animation
-            if(messageLabel.Text == "")
+            if (messageLabel.Text == "Success")
             {
-                loginButton.BackgroundColor = Color.LightGreen;
+                loginButton.BackgroundColor = Color.FromHex("#53ed7c");
+                loginButton.TextColor = Color.FromHex("#000");
+                loginButton.BorderColor = Color.FromHex("#53ed7c");
+                await loginButton.TranslateTo(0, -5, 200);
+                await loginButton.TranslateTo(0, 10, 200);
+                await loginButton.TranslateTo(0, 0, 200);
             }
             else
             {
-                loginButton.BackgroundColor = Color.Red;
+                loginButton.BackgroundColor = Color.FromHex("#f77c7c");
+                loginButton.TextColor = Color.FromHex("#FFF");
+                loginButton.BorderColor = Color.FromHex("#f77c7c");
+                await loginButton.TranslateTo(-5, 0, 200);
+                await loginButton.TranslateTo(10, 0, 200);
+                await loginButton.TranslateTo(0, 0, 200);
+
             }
-            await loginButton.TranslateTo(-20,0,100);
-            await loginButton.TranslateTo(40, 0, 100);
-            await loginButton.TranslateTo(-20, 0, 100);
+
 
             loginButton.BackgroundColor = Color.FromHex("#FFF");
+            loginButton.TextColor = Color.FromHex("#000");
+            loginButton.BorderColor = Color.FromHex("#000");
         }
 
     }

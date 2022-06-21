@@ -4,9 +4,10 @@
     "\\StudentApp_v2",
     "\\StudentApp_v2\\StudentApp_v2",
     "\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2",
+    "\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\Models",
     "\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\Views",
     "\\StudentDataBase"
   ],
-  "SelectedNode": "\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\Views\\LoginPage.xaml",
+  "SelectedNode": "\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\Views\\personalDataPage.xaml",
   "PreviewInSolutionExplorer": false
 }

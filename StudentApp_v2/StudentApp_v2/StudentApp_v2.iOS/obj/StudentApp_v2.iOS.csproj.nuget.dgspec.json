@@ -46,25 +46,17 @@
               "target": "Package",
               "version": "[4.1.0, )"
             },
-            "MySql.Data": {
-              "target": "Package",
-              "version": "[8.0.29, )"
-            },
-            "MySqlConnector": {
-              "target": "Package",
-              "version": "[2.1.10, )"
-            },
             "System.Memory": {
               "target": "Package",
               "version": "[4.5.5, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.7.0, )"
+              "version": "[1.7.3, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[5.0.0.2196, )"
+              "version": "[5.0.0.2478, )"
             }
           }
         }
@@ -125,19 +117,15 @@
               "target": "Package",
               "version": "[4.1.0, )"
             },
-            "MySql.Data": {
-              "target": "Package",
-              "version": "[8.0.29, )"
-            },
-            "MySqlConnector": {
-              "target": "Package",
-              "version": "[2.1.10, )"
-            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
             },
             "System.Memory": {
               "target": "Package",
@@ -145,11 +133,11 @@
             },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.7.0, )"
+              "version": "[1.7.3, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[5.0.0.2196, )"
+              "version": "[5.0.0.2478, )"
             },
             "xunit": {
               "target": "Package",

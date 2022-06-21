@@ -36,33 +36,48 @@ namespace StudentApp_v2.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs("Pesel"));
             }
         }
-        private string errorMessage;
-        public string ErrorMessage
+        private string message = "";
+        public string Message 
         {
-            get { return errorMessage; }
+            get { return message; }
             set
             {
-                errorMessage = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("ErrorMessage"));
+                message = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Message"));
             }
         }
 
         private async void OnLoginClicked()
         {
-            var user = new User(int.Parse(index), pesel);
-
+           
+            if (index is null || pesel is null)
+            {
+                Message = "Please fill out the form";
+                return;
+            }
+            if (index == "" || pesel == "")
+            {
+                Message = "Please fill out the form";
+                return;
+            }
+            User user = new User(int.Parse(index), pesel);
+          
             bool isValid = DatabaseHandler.checkUserExists(user);
 
 
             if (isValid)
             {
-                errorMessage = "";
-                //var Student = DatabaseHandler.LogginUser(user);
+                Message = "Success";
+              
+                var Student = DatabaseHandler.LoggingUser(user);
+                ISessionContext.Student = Student;
+
                 await Shell.Current.GoToAsync($"//{nameof(PersonalDataPage)}");
+                
             }
             else
             {
-                errorMessage = "Incorrect index or password";
+                Message = "Incorrect index or password";
             }
         }
     }
