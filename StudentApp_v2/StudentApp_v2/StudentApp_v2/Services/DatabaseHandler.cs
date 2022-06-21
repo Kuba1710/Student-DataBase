@@ -1,11 +1,10 @@
-﻿using System.Data.SqlClient;
-using StudentApp_v2.Models;
+﻿using StudentApp_v2.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Data.SqlClient;
 
-namespace StudentApp_v2.Services 
-{ 
+namespace StudentApp_v2.Services
+{
     public static class DatabaseHandler
     {
         static SqlConnectionStringBuilder builder;
@@ -16,7 +15,7 @@ namespace StudentApp_v2.Services
         private static void Init()
         {
             builder = new SqlConnectionStringBuilder();
-            builder.DataSource =  "mysqlserver-to-po.database.windows.net";
+            builder.DataSource = "mysqlserver-to-po.database.windows.net";
             builder.UserID = "azureuser";
             builder.Password = "mypass253882PO";
             builder.InitialCatalog = "db_students";
@@ -29,18 +28,18 @@ namespace StudentApp_v2.Services
         /// <returns></returns>
         public static bool checkUserExists(User user)
         {
-            
+
             Init();
             connection.Open();
 
             bool result;
-           
+
             string query = String.Format(
                               "SELECT * " +
                               "FROM allstudents " +
                               "WHERE indeks ={0} " +
                               "AND pesel = {1}",
-                              user.Index,user.Pesel
+                              user.Index, user.Pesel
                               );
             SqlCommand command = new SqlCommand(query, connection);
             SqlDataReader reader = command.ExecuteReader();
@@ -71,7 +70,7 @@ namespace StudentApp_v2.Services
             string query = String.Format(
                 "SELECT * " +
                 "FROM allstudents " +
-                "WHERE index={0} AND pesel = {1}", 
+                "WHERE indeks={0} AND pesel = {1}",
                 user.Index, user.Pesel
                 );
 
@@ -80,7 +79,8 @@ namespace StudentApp_v2.Services
 
             while (reader.Read())
             {
-                result.Add(new Student() { 
+                result.Add(new Student()
+                {
                     Index = (int)reader["indeks"],
                     Name = (string)reader["Firstname"],
                     Surname = (string)reader["Secondname"],
@@ -97,8 +97,7 @@ namespace StudentApp_v2.Services
             connection.Close();
             reader.Close();
 
-            return result[0]; 
+            return result[0];
         }
     }
 }
- 

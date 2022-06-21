@@ -12,10 +12,12 @@
             <Color x:Key="PositiveColor">#53ed7c</Color>
             <Color x:Key="PlaceHolderColor">#4f4a4a</Color>
             <Color x:Key="TextColor">#000</Color>
-            <Color x:Key="FrameBackground" >#d1fffe</Color>
+            <Color x:Key="MainBckground" >#d1fffe</Color>
+
             <Style  TargetType="Button" >
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
+                    
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
@@ -83,7 +85,7 @@
                 <Setter Property="TextColor" Value="#000" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="BackgroundColor" Value="{x:StaticResource FrameBackground}" />
+                <Setter Property="BackgroundColor" Value="{x:StaticResource MainBckground}" />
                 <Setter Property="HeightRequest" Value="46" />
                 <Setter Property="WidthRequest" Value="200" />
                 <Setter Property="FontAttributes" Value="Bold" />
@@ -95,7 +97,7 @@
                 <Setter Property="TextColor" Value="#000" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="BackgroundColor" Value="{x:StaticResource FrameBackground}" />
+                <Setter Property="BackgroundColor" Value="{x:StaticResource MainBckground}" />
                 <Setter Property="HeightRequest" Value="46" />
                 <Setter Property="WidthRequest" Value="200" />
                 <Setter Property="Padding" Value="10,10,10,10" />

@@ -1,6 +1,4 @@
-﻿using StudentApp_v2.Models;
-using StudentApp_v2.Services;
-using StudentApp_v2.ViewModels;
+﻿using StudentApp_v2.ViewModels;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

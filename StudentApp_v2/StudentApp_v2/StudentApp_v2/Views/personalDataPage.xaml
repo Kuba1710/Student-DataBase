@@ -5,11 +5,13 @@
              x:Class="StudentApp_v2.Views.PersonalDataPage"
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False"
+           
              >
     <ContentPage.BindingContext>
         <viewmodels:PersonalDataViewModel />
     </ContentPage.BindingContext>
-    
+   
+
     <ContentPage.Content>
         <StackLayout>
             <Frame x:Name="welcomeFrame" HasShadow="False" Margin="30"> 
@@ -22,7 +24,7 @@
             <Frame
                 HasShadow="False"
                 x:Name="gridFrame"
-                BackgroundColor="#d1fffe"
+                BackgroundColor="{x:StaticResource MainBckground}"
                 CornerRadius="25"
                 Margin="10"
                 >
@@ -46,8 +48,8 @@
                     <Label x:Name="gpaLabe" Text="Gpa:" Grid.Row="8" Grid.Column="0" Style="{x:StaticResource GridDefinitionsLabel}"/>
 
                     <!--Second Column-->
-                    
-                    <Label x:Name="studentIndexLabel"  Grid.Row="0" Grid.Column="1" Style="{x:StaticResource GridLabel}"/>
+
+                    <Label x:Name="studentIndexLabel" Text="{Binding Student.Index,StringFormat=' {0} '}" Grid.Row="0" Grid.Column="1" Style="{x:StaticResource GridLabel}"/>
                     <Label x:Name="studentNameLabel"  Text="{Binding Student.Name, StringFormat=' {0} '}" Grid.Row="1" Grid.Column="1"  Style="{x:StaticResource GridLabel}" />
                     <Label x:Name="studentSurnameLabel"  Text="{Binding Student.Surname, StringFormat=' {0} '}" Grid.Row="2" Grid.Column="1"  Style="{x:StaticResource GridLabel}" />
                     <Label x:Name="studentPeselLabel"  Text="{Binding Student.Pesel, StringFormat=' {0} '}" Grid.Row="3" Grid.Column="1"   Style="{x:StaticResource GridLabel}" />
