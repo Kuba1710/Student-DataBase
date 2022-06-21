@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("StudentApp_v2.Views.personalDataPage.xaml", "Views/personalDataPage.xaml", typeof(global::StudentApp_v2.Views.PersonalDataPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("StudentApp_v2.Views.PersonalDataPage.xaml", "Views/PersonalDataPage.xaml", typeof(global::StudentApp_v2.Views.PersonalDataPage))]
 
 namespace StudentApp_v2.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\personalDataPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\PersonalDataPage.xaml")]
     public partial class PersonalDataPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

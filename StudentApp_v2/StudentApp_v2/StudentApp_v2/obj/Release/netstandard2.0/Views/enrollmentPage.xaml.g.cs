@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("StudentApp_v2.Views.enrollmentPage.xaml", "Views/enrollmentPage.xaml", typeof(global::StudentApp_v2.Views.EnrollmentPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("StudentApp_v2.Views.EnrollmentPage.xaml", "Views/EnrollmentPage.xaml", typeof(global::StudentApp_v2.Views.EnrollmentPage))]
 
 namespace StudentApp_v2.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\enrollmentPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\EnrollmentPage.xaml")]
     public partial class EnrollmentPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
