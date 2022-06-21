@@ -12,6 +12,7 @@
             <Color x:Key="PositiveColor">#53ed7c</Color>
             <Color x:Key="PlaceHolderColor">#4f4a4a</Color>
             <Color x:Key="TextColor">#000</Color>
+            <Color x:Key="FrameBackground" >#d1fffe</Color>
             <Style  TargetType="Button" >
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
@@ -33,6 +34,7 @@
             </Style>
             
  <!--STYLES-->
+            <!--Login Page-->
             <Style x:Key="LoginFormButton" TargetType="Button">
                 <Setter Property="FontSize" Value="18" />
                 <Setter Property="TextColor" Value="{x:StaticResource TextColor}" />
@@ -74,6 +76,35 @@
                 <Setter Property="Padding" Value="10,10,10,10" />
                 <Setter Property="BackgroundColor" Value="#c9c9c9" />
                 
+            </Style>
+            <!--Personal Data Page-->
+            <Style x:Key="GridDefinitionsLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="#000" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="BackgroundColor" Value="{x:StaticResource FrameBackground}" />
+                <Setter Property="HeightRequest" Value="46" />
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Padding" Value="10,10,10,10" />
+
+            </Style>
+            <Style x:Key="GridLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="#000" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="BackgroundColor" Value="{x:StaticResource FrameBackground}" />
+                <Setter Property="HeightRequest" Value="46" />
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="Padding" Value="10,10,10,10" />
+            </Style>
+            <Style x:Key="headerLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="#000" />
+
+
             </Style>
             <!--STYLES END-->
         </ResourceDictionary>        

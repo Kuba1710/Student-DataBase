@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PAkDK75JmOBdEcIrkvnX5U6FAbZZA79ZVOblHzf+VdXd0C3Vw9uN5l4ilu5nKQ22/IKVrmvMy7lDRZYjc4rucw==",
+  "dgSpecHash": "V/Wb9vDLUbKVYe9yLt6PQ41hoTucToFKXNcjkhnt/Br0gJaQZVwf5909hhZpr7RF2MZwlGSUAcnlqaN7nVRPFw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.Android\\StudentApp_v2.Android.csproj",
+  "projectFilePath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.Android\\StudentApp_v2.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\amade\\.nuget\\packages\\com.airbnb.android.lottie\\4.2.2\\com.airbnb.android.lottie.4.2.2.nupkg.sha512",
     "C:\\Users\\amade\\.nuget\\packages\\com.airbnb.xamarin.forms.lottie\\4.1.0\\com.airbnb.xamarin.forms.lottie.4.1.0.nupkg.sha512",

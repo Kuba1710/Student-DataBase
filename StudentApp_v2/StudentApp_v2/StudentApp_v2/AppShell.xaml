@@ -17,9 +17,9 @@
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
 <!--Tabbar properties-->
-                <Setter Property="Shell.TabBarBackgroundColor" Value="#bf3636" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="#000"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#FFF"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#51D6C2" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="Red"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{x:StaticResource PlaceHolderColor}"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="#000"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
@@ -27,9 +27,11 @@
     </Shell.Resources>
     
 <!--Routing-->
+    <!--
     <ShellItem Route="LoginPage" FlyoutItemIsVisible ="False">
         <ShellContent  ContentTemplate="{DataTemplate local:LoginPage}" />
     </ShellItem>
+    -->
 <!--TABBAR-->
     <TabBar>
         <Tab Title="Personal Data" Icon="">

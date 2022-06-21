@@ -6,7 +6,6 @@ namespace StudentApp_v2.Models
 {
     public class Student
     {
-
         public int Index { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
