@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using StudentApp_v2.Models;
 
 using Xamarin.Forms;
 
 namespace StudentApp_v2.ViewModels
 {
-    public class PersonalDataViewModel : ContentView
+    public class PersonalDataViewModel : BindableObject
     {
         public PersonalDataViewModel()
         {
-           
+             Student = ISessionContext.Student;
         }
+        public Student Student { get; set; }
+        
     }
 }

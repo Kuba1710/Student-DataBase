@@ -11,10 +11,14 @@
             <Color x:Key="ErrorColor">#f77c7c</Color>
             <Color x:Key="PositiveColor">#53ed7c</Color>
             <Color x:Key="PlaceHolderColor">#4f4a4a</Color>
+            <Color x:Key="MenuBackground">#c9c9c9</Color>
             <Color x:Key="TextColor">#000</Color>
+            <Color x:Key="MainBckground" >#d1fffe</Color>
+
             <Style  TargetType="Button" >
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
+                    
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
@@ -49,14 +53,14 @@
                
                 
             </Style>
-            <Style x:Key="errorMessage" TargetType="Frame">
+            <Style x:Key="feedbackMessage" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{x:StaticResource ErrorColor}" />
                 <Setter Property="HasShadow" Value="True" />
                 <Setter Property = "CornerRadius" Value="25" />
                 <Setter Property = "HorizontalOptions" Value="Center" />
                 <Setter Property = "Margin" Value="0,25,0,0" />
             </Style>
-            <Style x:Key="errorText" TargetType="Label">
+            <Style x:Key="feedbackText" TargetType="Label">
                 <Setter Property="FontSize" Value="18" />
                 <Setter Property="TextColor" Value="{x:StaticResource TextColor}" />
                 <Setter Property="FontAttributes" Value="Bold" />
@@ -72,9 +76,56 @@
             </Style>
             <Style x:Key="FormFrame" TargetType="StackLayout">
                 <Setter Property="Padding" Value="10,10,10,10" />
-                <Setter Property="BackgroundColor" Value="#c9c9c9" />
+                <Setter Property="BackgroundColor" Value="{StaticResource MenuBackground}" />
+
                 
             </Style>
+            <Style x:Key="EnrollFrame" TargetType="StackLayout">
+                <Setter Property="Padding" Value="10,10,10,10" />
+                <Setter Property="BackgroundColor" Value="{x:StaticResource MainBckground}" />
+
+
+            </Style>
+            <Style x:Key="headerFrame" TargetType="Frame">
+                <Setter Property="Margin" Value="30,30,30,30" />
+                <Setter Property="BackgroundColor" Value="{StaticResource MenuBackground}"  />
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="StartAndExpand" />
+
+            </Style>
+            <Style x:Key="headerLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="#000" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center"/>
+
+
+            </Style>
+            <!--Personal Data Page-->
+            <Style x:Key="GridDefinitionsLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="#000" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="BackgroundColor" Value="{x:StaticResource MainBckground}" />
+                <Setter Property="HeightRequest" Value="46" />
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Padding" Value="10,10,10,10" />
+
+            </Style>
+            <Style x:Key="GridLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="#000" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="BackgroundColor" Value="{x:StaticResource MainBckground}" />
+                <Setter Property="HeightRequest" Value="46" />
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="Padding" Value="10,10,10,10" />
+            </Style>
+        
             <!--STYLES END-->
         </ResourceDictionary>        
     </Application.Resources>

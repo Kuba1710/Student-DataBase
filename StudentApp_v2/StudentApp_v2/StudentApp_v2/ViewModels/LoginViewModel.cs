@@ -1,18 +1,16 @@
-﻿using StudentApp_v2.Views;
-using StudentApp_v2.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-using Xamarin.Forms;
+﻿using StudentApp_v2.Models;
 using StudentApp_v2.Services;
+using StudentApp_v2.Views;
+using System.ComponentModel;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace StudentApp_v2.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public  Command LoginClicked { get; }
+        public Command LoginClicked { get; }
         public LoginViewModel()
         {
             LoginClicked = new Command(OnLoginClicked);
@@ -21,10 +19,11 @@ namespace StudentApp_v2.ViewModels
         public string Index
         {
             get { return index; }
-            set {
+            set
+            {
                 index = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Index"));
-                }
+            }
         }
         private string pesel;
         public string Pesel
@@ -37,7 +36,7 @@ namespace StudentApp_v2.ViewModels
             }
         }
         private string message = "";
-        public string Message 
+        public string Message
         {
             get { return message; }
             set
@@ -49,7 +48,12 @@ namespace StudentApp_v2.ViewModels
 
         private async void OnLoginClicked()
         {
-           
+            var connectivity = Connectivity.NetworkAccess;
+            if (connectivity != NetworkAccess.Internet)
+            {
+                Message = "No internet connection";
+                return;
+            }
             if (index is null || pesel is null)
             {
                 Message = "Please fill out the form";
@@ -61,19 +65,19 @@ namespace StudentApp_v2.ViewModels
                 return;
             }
             User user = new User(int.Parse(index), pesel);
-          
+
             bool isValid = DatabaseHandler.checkUserExists(user);
 
 
             if (isValid)
             {
                 Message = "Success";
-              
+
                 var Student = DatabaseHandler.LoggingUser(user);
                 ISessionContext.Student = Student;
 
                 await Shell.Current.GoToAsync($"//{nameof(PersonalDataPage)}");
-                
+
             }
             else
             {

@@ -1,7 +1,4 @@
-﻿using StudentApp_v2.Views;
-using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
 namespace StudentApp_v2
 {
@@ -12,7 +9,7 @@ namespace StudentApp_v2
         {
             InitializeComponent();
 
-         
+
             MainPage = new AppShell();
         }
 

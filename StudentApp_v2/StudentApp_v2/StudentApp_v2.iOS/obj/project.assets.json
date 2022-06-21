@@ -1883,11 +1883,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.iOS\\StudentApp_v2.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\amade\\Source\\Repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.iOS\\StudentApp_v2.iOS.csproj",
       "projectName": "StudentApp_v2.iOS",
-      "projectPath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.iOS\\StudentApp_v2.iOS.csproj",
+      "projectPath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.iOS\\StudentApp_v2.iOS.csproj",
       "packagesPath": "C:\\Users\\amade\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.iOS\\obj\\",
+      "outputPath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1908,8 +1908,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj": {
-              "projectPath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBas\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj"
+            "C:\\Users\\amade\\Source\\Repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj": {
+              "projectPath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj"
             }
           }
         }

@@ -1,12 +1,8 @@
-﻿using System;
+﻿using StudentApp_v2.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using StudentApp_v2.Models;
 
 namespace StudentApp_v2.Views
 {
@@ -18,7 +14,7 @@ namespace StudentApp_v2.Views
         {
             InitializeComponent();
 
-            var schedule = new Schedule();
+            //var schedule = new Schedule();
         }
         //Function creating dynamic Grid -> in progress
         void CreateGrid(Schedule schedule)
@@ -27,7 +23,8 @@ namespace StudentApp_v2.Views
             foreach (string subject in schedule.Courses)
             {
                 subjectGrid.RowDefinitions.Add(new RowDefinition());
-                var label = new Label() {
+                var label = new Label()
+                {
                     Text = subject,
                     VerticalOptions = LayoutOptions.Center,
                     HorizontalOptions = LayoutOptions.Center
@@ -35,6 +32,6 @@ namespace StudentApp_v2.Views
                 subjectGrid.Children.Add(label);
             }
         }
-      
+
     }
 }

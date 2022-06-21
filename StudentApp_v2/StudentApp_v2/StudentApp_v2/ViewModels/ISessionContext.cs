@@ -1,7 +1,4 @@
 ﻿using StudentApp_v2.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace StudentApp_v2.ViewModels
 {

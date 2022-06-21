@@ -1,6 +1,4 @@
-﻿using StudentApp_v2.Models;
-using StudentApp_v2.Services;
-using StudentApp_v2.ViewModels;
+﻿using StudentApp_v2.ViewModels;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -23,6 +21,7 @@ namespace StudentApp_v2.Views
             //Button animation
             if (messageLabel.Text == "Success")
             {
+                messageFrame.IsVisible=false;
                 loginButton.BackgroundColor = Color.FromHex("#53ed7c");
                 loginButton.TextColor = Color.FromHex("#000");
                 loginButton.BorderColor = Color.FromHex("#53ed7c");

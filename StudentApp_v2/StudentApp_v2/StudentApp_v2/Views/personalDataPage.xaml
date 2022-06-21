@@ -1,39 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:StudentApp_v2.ViewModels"
              x:Class="StudentApp_v2.Views.PersonalDataPage"
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False"
+           
              >
+    <ContentPage.BindingContext>
+        <viewmodels:PersonalDataViewModel />
+    </ContentPage.BindingContext>
+   
+
     <ContentPage.Content>
         <StackLayout>
+            <Frame x:Name="welcomeFrame" HasShadow="True" Style="{x:StaticResource headerFrame}"> 
             <Label
                 x:Name="welcomeLabel"
-                Text="Welcome back!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
+                Text="{Binding Student.Name, StringFormat=' Dane studenta, {0}  '}"
+                Style="{x:StaticResource headerLabel}"
                 />
+            </Frame>
             <Frame
                 HasShadow="False"
-                x:Name="personalDataFrame"
+                x:Name="gridFrame"
+                BackgroundColor="{x:StaticResource MainBckground}"
+                CornerRadius="25"
+                Margin="30"
                 >
-                <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*,*">
-                <!--First Column-->
-                    <Label x:Name="nameLabel" Text="Name:" Grid.Row="0" Grid.Column="0" HeightRequest="56" WidthRequest="56"/>
-                    <Label x:Name="surnameLabel" Text="Surname:" Grid.Row="1" Grid.Column="0" HeightRequest="56" WidthRequest="56"/>
-                    <Label x:Name="addressLabel" Text="Address:" Grid.Row="2" Grid.Column="0" HeightRequest="56" WidthRequest="56"/>
-                    <Label x:Name="ectsLabel" Text="ECTS:" Grid.Row="3" Grid.Column="0" HeightRequest="56" WidthRequest="56"/>
-                    <Label x:Name="specializationLabel" Text="Specialization:" Grid.Row="4" Grid.Column="0" HeightRequest="56" WidthRequest="56"/>
-                    <Label x:Name="avgGradeLabel" Text="Average Grade:" Grid.Row="5" Grid.Column="0" HeightRequest="56" WidthRequest="56"/>
-                    <Label x:Name="indexLabel" Text="Index:" Grid.Row="6" Grid.Column="0" HeightRequest="56" WidthRequest="56"/>
-                <!--Second Column-->
-                    <Label x:Name="studentNameLabel"  Grid.Row="0" Grid.Column="1" HeightRequest="56" WidthRequest="56"/>
-                    <Label x:Name="studentSurnameLabel"  Grid.Row="1" Grid.Column="1" HeightRequest="56" WidthRequest="56"/>
-                    <Label x:Name="studentAddressLabel"  Grid.Row="2" Grid.Column="1" HeightRequest="56" WidthRequest="56"/>
-                    <Label x:Name="studentEctsLabel"  Grid.Row="3" Grid.Column="1" HeightRequest="56" WidthRequest="56"/>
-                    <Label x:Name="studentSpecializationLabel"  Grid.Row="4" Grid.Column="1" HeightRequest="56" WidthRequest="56"/>
-                    <Label x:Name="studentAvgGradeLabel"  Grid.Row="5" Grid.Column="1" HeightRequest="56" WidthRequest="56"/>
-                    <Label x:Name="studentIndexLabel"  Grid.Row="6" Grid.Column="1" HeightRequest="56" WidthRequest="56"/>
+                <Grid VerticalOptions="Center" Padding="1" RowSpacing="1" ColumnSpacing="1" 
+                      RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" BackgroundColor="Black"> 
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                   
+                    <!--First Column-->
+                    <Label x:Name="indexLabel" Text="Index:" Grid.Row="0" Grid.Column="0" Style="{x:StaticResource GridDefinitionsLabel}" />
+                    <Label x:Name="nameLabel" Text="Name:" Grid.Row="1" Grid.Column="0" Style="{x:StaticResource GridDefinitionsLabel}" />
+                    <Label x:Name="surnameLabel" Text="Surname:" Grid.Row="2" Grid.Column="0"  Style="{x:StaticResource GridDefinitionsLabel}"/>
+                    <Label x:Name="peselLabel" Text="Pesel:" Grid.Row="3" Grid.Column="0" Style="{x:StaticResource GridDefinitionsLabel}" />
+                    <Label x:Name="specializationLabel" Text="Specialization:" Grid.Row="4" Grid.Column="0" Style="{x:StaticResource GridDefinitionsLabel}"/>
+                    <Label x:Name="fieldOfStudyLabel" Text="Field of Study:" Grid.Row="5" Grid.Column="0"  Style="{x:StaticResource GridDefinitionsLabel}"/>
+                    <Label x:Name="degreeLabel" Text="Degree type:" Grid.Row="6" Grid.Column="0" Style="{x:StaticResource GridDefinitionsLabel}" />
+                    <Label x:Name="yearLabel" Text="Year:" Grid.Row="7" Grid.Column="0" Style="{x:StaticResource GridDefinitionsLabel}" />
+                    <Label x:Name="gpaLabe" Text="Gpa:" Grid.Row="8" Grid.Column="0" Style="{x:StaticResource GridDefinitionsLabel}"/>
+
+                    <!--Second Column-->
+
+                    <Label x:Name="studentIndexLabel" Text="{Binding Student.Index,StringFormat=' {0} '}" Grid.Row="0" Grid.Column="1" Style="{x:StaticResource GridLabel}"/>
+                    <Label x:Name="studentNameLabel"  Text="{Binding Student.Name, StringFormat=' {0} '}" Grid.Row="1" Grid.Column="1"  Style="{x:StaticResource GridLabel}" />
+                    <Label x:Name="studentSurnameLabel"  Text="{Binding Student.Surname, StringFormat=' {0} '}" Grid.Row="2" Grid.Column="1"  Style="{x:StaticResource GridLabel}" />
+                    <Label x:Name="studentPeselLabel"  Text="{Binding Student.Pesel, StringFormat=' {0} '}" Grid.Row="3" Grid.Column="1"   Style="{x:StaticResource GridLabel}" />
+                    <Label x:Name="studentSpecializationLabel"  Text="{Binding Student.Specialization, StringFormat=' {0} '}" Grid.Row="4" Grid.Column="1" Style="{x:StaticResource GridLabel}" />
+                    <Label x:Name="studentFieldOfStudyLabel"  Text="{Binding Student.FieldOfStudy, StringFormat=' {0} '}" Grid.Row="5" Grid.Column="1"  Style="{x:StaticResource GridLabel}"  />
+                    <Label x:Name="studentDegreeLabel"  Text="{Binding Student.Degree, StringFormat=' {0} '}" Grid.Row="6" Grid.Column="1"  Style="{x:StaticResource GridLabel}"  />
+                    <Label x:Name="studentYearLabel" Text="{Binding Student.YearOfStudy, StringFormat=' {0} '}" Grid.Row="7" Grid.Column="1"  Style="{x:StaticResource GridLabel}" />
+                    <Label x:Name="studentGpaLabel" Text="{Binding Student.Gpa, StringFormat=' {0} '}" Grid.Row="8" Grid.Column="1"  Style="{x:StaticResource GridLabel}" />
+                    
                 </Grid>
             </Frame>
         </StackLayout>
