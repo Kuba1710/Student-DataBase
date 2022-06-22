@@ -4,8 +4,8 @@
     "\\StudentApp_v2",
     "\\StudentApp_v2\\StudentApp_v2",
     "\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2",
-    "\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\Views"
+    "\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\ViewModels"
   ],
-  "SelectedNode": "\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\Views\\LoginPage.xaml.cs",
+  "SelectedNode": "\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\ViewModels\\LoginViewModel.cs",
   "PreviewInSolutionExplorer": false
 }

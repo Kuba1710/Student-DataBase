@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "VEs/AHi8ksGIMQg9zw85RLgVJEDwaJto95rUPLdD731RSwFLPJWuemdb2aIXbhwAN7ODl+xLYgI3x2BSgFMONg==",
+  "dgSpecHash": "lQ8mCwSpVy+l90Y1FVFs96N8ezeM/8O+bDWndFPkTIP7v5/ZQMmE3BaSwC0ektuc4fs6CVAKq4DZrCuQ9weEsA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\amade\\Source\\Repos\\Student-DataBase\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj",
+  "projectFilePath": "C:\\Users\\amade\\Source\\Repos\\Student\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2\\StudentApp_v2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\amade\\.nuget\\packages\\com.airbnb.xamarin.forms.lottie\\4.1.0\\com.airbnb.xamarin.forms.lottie.4.1.0.nupkg.sha512",
     "C:\\Users\\amade\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\amade\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\amade\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

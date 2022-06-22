@@ -1,20 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:StudentApp_v2.ViewModels"
              x:Class="StudentApp_v2.Views.SchedulePage"
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False">
+    <ContentPage.BindingContext>
+        <viewmodels:ScheduleViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <StackLayout>
-            <Label
-                x:Name="scheduleLabel"
-                Text="Schedule"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <!--Dynamic Grid-->
-            <Frame x:Name="scheduleFrame" HasShadow="False">
-                <Grid x:Name="subjectGrid">
-                    
+            <Frame x:Name="welcomeFrame" HasShadow="True" Style="{x:StaticResource headerFrame}">
+                <Label
+                x:Name="welcomeLabel"
+                Text="Schedule Status"
+                Style="{x:StaticResource headerLabel}"
+                />
+            </Frame>
+            <Frame
+                HasShadow="False"
+                x:Name="gridFrame"
+                BackgroundColor="{x:StaticResource MainBckground}"
+                CornerRadius="25"
+                Margin="10,30,10,30"
+                >
+                <Grid VerticalOptions="Center" Padding="1" RowSpacing="1" ColumnSpacing="1" 
+                      RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" BackgroundColor="Black">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--First Column-->
+                    <Label Text="{Binding Schedule.Courses[0], StringFormat=' {0} '}" Grid.Row="0" Grid.Column="0" Style="{x:StaticResource GridLabelSchedule}" />
+                    <Label Text="{Binding Schedule.Courses[1], StringFormat=' {0} '}" Grid.Row="1" Grid.Column="0" Style="{x:StaticResource GridLabelSchedule}" />
+                    <Label Text="{Binding Schedule.Courses[2], StringFormat=' {0} '}" Grid.Row="2" Grid.Column="0"  Style="{x:StaticResource GridLabelSchedule}"/>
+                    <Label Text="{Binding Schedule.Courses[3], StringFormat=' {0} '}" Grid.Row="3" Grid.Column="0" Style="{x:StaticResource GridLabelSchedule}" />
+                    <Label Text="{Binding Schedule.Courses[4], StringFormat=' {0} '}" Grid.Row="4" Grid.Column="0" Style="{x:StaticResource GridLabelSchedule}"/>
+                    <Label Text="{Binding Schedule.Courses[5], StringFormat=' {0} '}" Grid.Row="5" Grid.Column="0" Style="{x:StaticResource GridLabelSchedule}"/>
+                    <Label Text="{Binding Schedule.Courses[6], StringFormat=' {0} '}" Grid.Row="6" Grid.Column="0"  Style="{x:StaticResource GridLabelSchedule}"/>
+                    <Label Text="{Binding Schedule.Courses[7], StringFormat=' {0} '}" Grid.Row="7" Grid.Column="0" Style="{x:StaticResource GridLabelSchedule}" />
+                    <Label Text="{Binding Schedule.Courses[8], StringFormat=' {0} '}" Grid.Row="8" Grid.Column="0" Style="{x:StaticResource GridLabelSchedule}" />
+
+
+                    <!--Second Column-->
+
+                    <Label Text="{Binding Schedule.Grades[0], StringFormat=' {0} '}" Grid.Row="0" Grid.Column="1" Style="{x:StaticResource GridLabel}"/>
+                    <Label Text="{Binding Schedule.Grades[1], StringFormat=' {0} '}" Grid.Row="1" Grid.Column="1"  Style="{x:StaticResource GridLabel}" />
+                    <Label Text="{Binding Schedule.Grades[2], StringFormat=' {0} '}" Grid.Row="2" Grid.Column="1"  Style="{x:StaticResource GridLabel}" />
+                    <Label Text="{Binding Schedule.Grades[3], StringFormat=' {0} '}" Grid.Row="3" Grid.Column="1"   Style="{x:StaticResource GridLabel}" />
+                    <Label Text="{Binding Schedule.Grades[4], StringFormat=' {0} '}" Grid.Row="4" Grid.Column="1" Style="{x:StaticResource GridLabel}" />
+                    <Label Text="{Binding Schedule.Grades[5], StringFormat=' {0} '}" Grid.Row="5" Grid.Column="1"  Style="{x:StaticResource GridLabel}"  />
+                    <Label Text="{Binding Schedule.Grades[6], StringFormat=' {0} '}" Grid.Row="6" Grid.Column="1"  Style="{x:StaticResource GridLabel}"  />
+                    <Label Text="{Binding Schedule.Grades[7], StringFormat=' {0} '}" Grid.Row="7" Grid.Column="1"  Style="{x:StaticResource GridLabel}" />
+                    <Label Text="{Binding Schedule.Grades[8], StringFormat=' {0} '}" Grid.Row="8" Grid.Column="1"  Style="{x:StaticResource GridLabel}" />
+
                 </Grid>
 
             </Frame>

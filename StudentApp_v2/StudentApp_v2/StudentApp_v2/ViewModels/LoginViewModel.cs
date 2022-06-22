@@ -66,7 +66,7 @@ namespace StudentApp_v2.ViewModels
             }
             User user = new User(int.Parse(index), pesel);
 
-            bool isValid = DatabaseHandler.checkUserExists(user);
+            bool isValid = DatabaseHandler.CheckUserExists(user);
 
 
             if (isValid)

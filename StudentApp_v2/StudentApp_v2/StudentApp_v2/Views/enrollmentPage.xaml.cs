@@ -13,7 +13,7 @@ namespace StudentApp_v2.Views
         {
             InitializeComponent();
             this.BindingContext = new EnrollmentViewModel();
-            string[] courseList = {"TechnikaMikrofalowa","PodstawyEksploatacjiSystemów","Openlab","Montaz","ProgramowanieObiektowe","ProgramowanieUkładówLogicznych","Procesory Sygnałowe", "WbudowaneSystemyOperacyjne","WeryfikacjaSystemówCyfrowych","TechnikaProzni","ModelowanieMikro","opto2","swiatlo2","OptoObrazowa"};
+            string[] courseList = { "TechnikaMikrofalowa", "PodstawyEksploatacjiSystemów", "Openlab","Montaz", "ProgramowanieObiektowe", "ProgramowanieUkładówLogicznych", "ProcesorySygnałowe", "WbudowaneSystemyOperacyjne", "WeryfikacjaSystemowCyfrowych", "TechnikaProzni","ModelowanieMikro","opto2","swiatlo2","OptoObrazowa"};
             foreach(string course in courseList)
                 this.CoursePicker.Items.Add(course);
             

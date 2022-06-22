@@ -9,6 +9,7 @@ androidx.appcompat.widget.Toolbar;C:\Users\amade\Source\Repos\Student-DataBas\St
 androidx.appcompat.widget.Toolbar;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\layout\toolbar.xml
 androidx.coordinatorlayout.widget.CoordinatorLayout;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\layout\rootlayout.xml
 androidx.coordinatorlayout.widget.CoordinatorLayout;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\layout\shellcontent.xml
+attr;C:\Users\amade\Source\Repos\Student\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\113\jl\res\values\attrs.xml
 attr;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\1\jl\res\values\values.xml
 attr;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\values\attrs.xml
 background;obj\Release\120\res\mipmap-anydpi-v26\icon.xml
@@ -22,6 +23,7 @@ com.google.android.material.bottomnavigation.BottomNavigationView;C:\Users\amade
 com.google.android.material.tabs.TabLayout;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\layout\fallbacktabbardonotuse.xml
 com.google.android.material.tabs.TabLayout;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\layout\rootlayout.xml
 com.google.android.material.tabs.TabLayout;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\layout\tabbar.xml
+declare-styleable;C:\Users\amade\Source\Repos\Student\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\113\jl\res\values\attrs.xml
 declare-styleable;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\1\jl\res\values\values.xml
 declare-styleable;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\values\attrs.xml
 enum;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\1\jl\res\values\values.xml
@@ -30,10 +32,13 @@ external-path;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentA
 foreground;obj\Release\120\res\mipmap-anydpi-v26\icon.xml
 foreground;obj\Release\120\res\mipmap-anydpi-v26\icon_round.xml
 FrameLayout;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\layout\bottomtablayout.xml
+item;C:\Users\amade\Source\Repos\Student\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\113\jl\res\values\styles.xml
 item;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\1\jl\res\values\values.xml
 item;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\values\styles.xml
 LinearLayout;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\layout\bottomtablayout.xml
 paths;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\56\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+resources;C:\Users\amade\Source\Repos\Student\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\113\jl\res\values\attrs.xml
+resources;C:\Users\amade\Source\Repos\Student\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\113\jl\res\values\styles.xml
 resources;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\1\jl\res\values\values.xml
 resources;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\values\attrs.xml
 resources;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\values\strings.xml
@@ -45,6 +50,7 @@ set;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\Stud
 set;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\anim\exittoleft.xml
 set;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\anim\exittoright.xml
 string;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\values\strings.xml
+style;C:\Users\amade\Source\Repos\Student\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\113\jl\res\values\styles.xml
 style;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\values\styles.xml
 style;obj\Release\120\res\values\styles.xml
 translate;C:\Users\amade\Source\Repos\Student-DataBas\StudentApp_v2\StudentApp_v2\StudentApp_v2.Android\obj\Release\120\lp\57\jl\res\anim\enterfromleft.xml
