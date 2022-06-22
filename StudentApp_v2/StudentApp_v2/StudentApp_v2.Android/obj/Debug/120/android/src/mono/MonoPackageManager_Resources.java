@@ -4,9 +4,6 @@ public class MonoPackageManager_Resources {
 		/* We need to ensure that "StudentApp_v2.Android.dll" comes first in this list. */
 		"StudentApp_v2.Android.dll",
 		"FormsViewGroup.dll",
-		"Lottie.Android.dll",
-		"Lottie.Forms.dll",
-		"Square.OkIO.dll",
 		"StudentApp_v2.dll",
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.Annotation.dll",

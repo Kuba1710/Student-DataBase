@@ -105,3 +105,15 @@ androidx.asynclayoutinflater.asynclayoutinflater.aar
 androidx.legacy.legacy-support-core-ui.aar
 androidx.legacy.legacy-support-v4.aar
 androidx.browser.browser.aar
+Uno.dll
+Uno.Foundation.dll
+Uno.Foundation.Logging.dll
+Uno.UI.BindingHelper.Android.dll
+Uno.UI.Composition.dll
+Uno.UI.Dispatching.dll
+Uno.UI.dll
+Uno.UI.FluentTheme.dll
+Uno.UI.FluentTheme.v1.dll
+Uno.UI.FluentTheme.v2.dll
+Uno.UI.Toolkit.dll
+Uno.Xaml.dll

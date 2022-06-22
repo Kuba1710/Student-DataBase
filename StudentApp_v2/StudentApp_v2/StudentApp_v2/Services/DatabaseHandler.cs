@@ -14,11 +14,15 @@ namespace StudentApp_v2.Services
         /// </summary>
         private static void Init()
         {
-            builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "mysqlserver-to-po.database.windows.net";
-            builder.UserID = "azureuser";
-            builder.Password = "mypass253882PO";
-            builder.InitialCatalog = "db_students";
+            builder = new SqlConnectionStringBuilder()
+            {
+                DataSource = "mysqlserver-to-po.database.windows.net",
+                UserID = "azureuser",
+                Password = "mypass253882PO",
+                InitialCatalog = "db_students"
+
+            };
+            
             connection = new SqlConnection(builder.ConnectionString);
         }
         /// <summary>
@@ -26,7 +30,7 @@ namespace StudentApp_v2.Services
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public static bool checkUserExists(User user)
+        public static bool CheckUserExists(User user)
         {
 
             Init();
@@ -104,7 +108,7 @@ namespace StudentApp_v2.Services
         /// </summary>
         /// <param name="enrollment"></param>
         /// <returns></returns>
-        public static string enrollmentActions(Enrollment enrollment)
+        public static string EnrollmentActions(Enrollment enrollment)
         {
             connection.Open();
 
@@ -182,6 +186,35 @@ namespace StudentApp_v2.Services
 
             connection.Close();
             reader.Close();
+            return result;
+        }
+        public static List<string> RetrieveCourseGrade(Schedule schedule)
+        {
+            List<string> result = new List<string>();
+            string query;
+            connection.Open();
+            foreach (string course in schedule.Courses)
+            {
+                //Check if in db
+                query = String.Format(
+                        "SELECT {0} " +
+                        "FROM {1} " +
+                        "WHERE indeks={2}",
+                         course,
+                         schedule.Specialization,
+                         schedule.Index
+                        );
+
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    result.Add((string)reader[String.Format("{0}", course)]);
+                }
+                reader.Close();
+            }
+            connection.Close();
             return result;
         }
     }

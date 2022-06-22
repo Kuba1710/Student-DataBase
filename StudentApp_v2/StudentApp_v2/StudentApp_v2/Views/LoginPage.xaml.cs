@@ -25,9 +25,6 @@ namespace StudentApp_v2.Views
                 loginButton.BackgroundColor = Color.FromHex("#53ed7c");
                 loginButton.TextColor = Color.FromHex("#000");
                 loginButton.BorderColor = Color.FromHex("#53ed7c");
-                await loginButton.TranslateTo(0, -5, 200);
-                await loginButton.TranslateTo(0, 10, 200);
-                await loginButton.TranslateTo(0, 0, 200);
             }
             else
             {

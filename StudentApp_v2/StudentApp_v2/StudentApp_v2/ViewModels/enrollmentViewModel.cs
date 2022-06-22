@@ -52,7 +52,7 @@ namespace StudentApp_v2.ViewModels
             else
             {
                 Enrollment enroll = new Enrollment(Student, PickedCourse, "Enroll");
-                Message = DatabaseHandler.enrollmentActions(enroll);
+                Message = DatabaseHandler.EnrollmentActions(enroll);
             }
 
         }
@@ -66,7 +66,7 @@ namespace StudentApp_v2.ViewModels
             else
             {
                 Enrollment enroll = new Enrollment(Student, PickedCourse, "Disenroll");
-                Message = DatabaseHandler.enrollmentActions(enroll);
+                Message = DatabaseHandler.EnrollmentActions(enroll);
             }
 
 
